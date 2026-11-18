@@ -717,3 +717,6 @@ function pause() {
   else state.demoTime = getTime();
   state.playing = false;
   refreshPlayButton();
+  poke();
+}
+const togglePlay = () => (state.playing ? pause() : play());
