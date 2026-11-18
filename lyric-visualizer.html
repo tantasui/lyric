@@ -1400,3 +1400,6 @@ window.addEventListener('keydown', (e) => {
   poke();
 });
 
+/* Idle hiding: chrome + cursor fade out after 2.5 s without input while playing */
+let idleTimer = 0, overChrome = false;
+function poke() {
