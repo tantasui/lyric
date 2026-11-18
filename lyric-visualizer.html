@@ -1184,3 +1184,6 @@ function forceLyricRebuild() { state.currentIndex = -999; }
 
 function updateNextLine(idx) {
   let txt = '';
+  for (let k = idx + 1; k < state.lines.length; k++) if (state.lines[k].words.length) { txt = state.lines[k].text; break; }
+  nextEl.textContent = txt;
+}
