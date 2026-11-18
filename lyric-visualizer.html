@@ -1279,3 +1279,6 @@ function applyPreset(key) {
   storage.set('pulse.preset', key);
 }
 
+/* Beat-driven hue nudge (only when the preset asks for it) */
+function updateColourShift() {
+  const P = state.preset;
