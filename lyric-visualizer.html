@@ -459,3 +459,6 @@ function rgbToHsl(r, g, b) {
     h *= 60;
   }
   return [h, s, l];
+}
+function hslToRgb(h, s, l) {
+  const k = (n) => (n + h / 30) % 12;
