@@ -566,3 +566,6 @@ function parseLRC(src) {
 
   for (const raw of src.split(/\r?\n/)) {
     let line = raw.trim();
+    if (!line) continue;
+
+    // Metadata like [ar:Artist] — the key is letters only, so it never clashes with [00:12.00]
