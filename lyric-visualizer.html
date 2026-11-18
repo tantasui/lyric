@@ -1069,3 +1069,6 @@ function buildLine(entry) {
     we.className = 'word';
     we.dataset.w = w.text;
     we.setAttribute('aria-hidden', 'true');
+    const chars = [...w.text].map((c) => {
+      const ce = document.createElement('span');
+      ce.className = 'ch';
