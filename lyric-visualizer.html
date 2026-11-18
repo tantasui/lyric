@@ -800,3 +800,6 @@ function analyse(t, dt, nowSec) {
 
   /* Beat = kick energy spikes above its rolling average.
      Rolling window ≈ last ~1 s (60 frames at 60 fps).
+     Sensitivity 1..10 lowers the multiplier & the noise floor. */
+  A.isBeat = false;
+  if (state.playing) {
