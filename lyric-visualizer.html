@@ -646,3 +646,6 @@ function timeWords(e) {
     const bi = next != null ? next : n;
     w.start = a + ((b - a) * (i - ai)) / (bi - ai);
   });
+  e.words.forEach((w, i) => { w.end = i < n - 1 ? e.words[i + 1].start : e.end; });
+}
+
