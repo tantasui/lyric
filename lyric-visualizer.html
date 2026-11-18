@@ -1394,3 +1394,6 @@ window.addEventListener('keydown', (e) => {
   else if (k === ']') setOffset(state.offset + 0.05);
   else if (k === '1') applyPreset('minimal');
   else if (k === '2') applyPreset('neon');
+  else if (k === '3') applyPreset('chaos');
+  else if (k === 'l' || k === 'L') (panel.classList.contains('open') ? closePanel : openPanel)();
+  else if (k === 'Escape') closePanel();
