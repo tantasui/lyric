@@ -1137,3 +1137,6 @@ function animateLine(line, lt, nowMs) {
 
   const s = 1 + A.beat * P.punch + A.bass * P.punch * 0.35;
   const sh = P.shake * A.beat;
+  const x = (Math.random() * 2 - 1) * sh, y = (Math.random() * 2 - 1) * sh;
+  const rot = (Math.random() * 2 - 1) * sh * 0.08;
+  const skew = glitching ? (Math.random() * 2 - 1) * 10 : 0;
