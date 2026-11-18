@@ -808,3 +808,6 @@ function analyse(t, dt, nowSec) {
     if (h.length > 60) h.shift();
     let mean = 0;
     for (const v of h) mean += v;
+    mean /= h.length;
+
+    const s = (state.sensitivity - 1) / 9;
