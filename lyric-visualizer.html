@@ -971,3 +971,6 @@ function drawRow(P, rgb) {
   const maxH = H * P.rowHeight * (1 + A.beat * 0.35);
   const grad = g.createLinearGradient(0, H, 0, H - maxH);
   grad.addColorStop(0, `rgba(${rgb},${P.barAlpha})`);
+  grad.addColorStop(1, `rgba(${rgb},${P.barAlpha * 0.12})`);
+  g.fillStyle = grad;
+  for (let k = 0; k < total; k++) {
