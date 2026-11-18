@@ -1131,3 +1131,6 @@ function animateLine(line, lt, nowMs) {
     line.el.classList.add('glitch');
     line.el.style.setProperty('--gx', ((Math.random() * 2 - 1) * 0.09).toFixed(3) + 'em');
     line.glitchUntil = nowMs + 110;
+  }
+  const glitching = line.glitchUntil > nowMs;
+  if (!glitching && line.glitchUntil) { line.el.classList.remove('glitch'); line.glitchUntil = 0; }
