@@ -1379,3 +1379,6 @@ window.addEventListener('drop', (e) => {
   for (const f of e.dataTransfer.files) {
     if (f.type.startsWith('audio/') || /\.(mp3|wav|ogg|m4a|flac|aac)$/i.test(f.name)) loadAudioFile(f);
     else if (/\.(lrc|txt)$/i.test(f.name) || f.type.startsWith('text/')) readTextFile(f);
+  }
+});
+
