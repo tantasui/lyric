@@ -1187,3 +1187,6 @@ function updateNextLine(idx) {
   for (let k = idx + 1; k < state.lines.length; k++) if (state.lines[k].words.length) { txt = state.lines[k].text; break; }
   nextEl.textContent = txt;
 }
+
+function updateLyrics(t, nowMs) {
+  const lt = t - state.offset; // lyric time (offset + = lyrics later)
