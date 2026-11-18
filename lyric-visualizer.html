@@ -788,3 +788,6 @@ function bandAvg(f0, f1) {
 
 function analyse(t, dt, nowSec) {
   if (state.audioLoaded && analyser) analyser.getByteFrequencyData(freqData);
+  else synthSpectrum(t);
+
+  const bass = bandAvg(20, 250), mid = bandAvg(250, 4000), high = bandAvg(4000, 14000);
