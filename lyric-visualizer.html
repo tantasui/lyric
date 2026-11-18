@@ -977,3 +977,6 @@ function drawRow(P, rgb) {
     const i = k < n ? n - 1 - k : k - n;
     const h = 2 + barVals[i] * maxH;
     g.fillRect(margin + k * bw, H - h, bw - gap, h);
+  }
+  g.fillStyle = 'rgba(255,255,255,.55)'; // peak caps
+  for (let k = 0; k < total; k++) {
