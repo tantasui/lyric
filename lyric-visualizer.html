@@ -1140,3 +1140,6 @@ function animateLine(line, lt, nowMs) {
   const x = (Math.random() * 2 - 1) * sh, y = (Math.random() * 2 - 1) * sh;
   const rot = (Math.random() * 2 - 1) * sh * 0.08;
   const skew = glitching ? (Math.random() * 2 - 1) * 10 : 0;
+  line.el.style.transform = `translate3d(${x.toFixed(2)}px,${y.toFixed(2)}px,0) rotate(${rot.toFixed(2)}deg) skewX(${skew.toFixed(1)}deg) scale(${s.toFixed(4)})`;
+  line.el.style.setProperty('--glow', (P.glow * (0.2 + A.beat * 0.85 + A.bass * 0.3)).toFixed(3));
+}
