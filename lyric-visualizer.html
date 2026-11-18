@@ -797,3 +797,6 @@ function analyse(t, dt, nowSec) {
   A.mid += (mid - A.mid) * damp(12, dt);
   A.high += (high - A.high) * damp(12, dt);
   A.level = (A.bass + A.mid + A.high) / 3;
+
+  /* Beat = kick energy spikes above its rolling average.
+     Rolling window ≈ last ~1 s (60 frames at 60 fps).
