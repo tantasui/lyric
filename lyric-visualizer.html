@@ -393,7 +393,7 @@ body.dragging #dropOverlay { opacity: 1; }
       <label for="offset">Lyric offset <output id="offsetOut">0.00s</output></label>
       <div class="stepper">
         <button class="step" data-target="offset" data-step="-0.1" aria-label="Show lyrics 0.1s earlier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 12h14"/></svg></button>
-        <input type="range" id="offset" min="-2" max="2" step="0.05" value="0" title="Double-click to reset">
+        <input type="range" id="offset" min="-15" max="15" step="0.05" value="0" title="Double-click to reset">
         <button class="step" data-target="offset" data-step="0.1" aria-label="Show lyrics 0.1s later"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
       </div>
     </div>
@@ -1459,7 +1459,7 @@ const setRangeFill = (input) => {
 };
 
 function setOffset(v) {
-  state.offset = clamp(Math.round(v * 100) / 100, -2, 2);
+  state.offset = clamp(Math.round(v * 100) / 100, -15, 15);
   offsetEl.value = state.offset;
   setRangeFill(offsetEl);
   // Show which way the lyrics moved, e.g. "+0.30s later"
