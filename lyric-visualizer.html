@@ -1196,3 +1196,6 @@ function updateLyrics(t, nowMs) {
     if (active) { retire(active); active = null; }
     state.currentIndex = idx;
     const entry = state.lines[idx];
+    if (entry && entry.words.length) active = buildLine(entry); // empty line = instrumental gap
+    updateNextLine(idx);
+  }
