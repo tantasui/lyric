@@ -569,3 +569,6 @@ function parseLRC(src) {
     if (!line) continue;
 
     // Metadata like [ar:Artist] — the key is letters only, so it never clashes with [00:12.00]
+    const metaM = line.match(/^\[([a-zA-Z]+)\s*:(.*)\]$/);
+    if (metaM) { meta[metaM[1].toLowerCase()] = metaM[2].trim(); continue; }
+
