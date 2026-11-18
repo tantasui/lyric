@@ -1353,3 +1353,6 @@ window.addEventListener('pointerup', () => { scrubbing = false; });
 offsetEl.addEventListener('input', () => setOffset(+offsetEl.value));
 offsetEl.addEventListener('dblclick', () => setOffset(0));
 sensEl.addEventListener('input', () => setSensitivity(sensEl.value));
+
+document.querySelectorAll('.presets button').forEach((b) => b.addEventListener('click', () => applyPreset(b.dataset.preset)));
+
