@@ -584,3 +584,6 @@ function parseLRC(src) {
     // Split into words, keeping any inline <mm:ss.xx> word timings
     const words = [];
     let lastIdx = 0, pendingT = null;
+    const pushText = (txt, t) => {
+      txt.split(/\s+/).filter(Boolean).forEach((w, i) => words.push({ text: w, t: i === 0 ? t : null }));
+    };
