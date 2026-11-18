@@ -897,3 +897,6 @@ function newParticle(anyDepth) {
     x: Math.random() * 2 - 1, y: Math.random() * 2 - 1,
     z: anyDepth ? 0.05 + Math.random() * 0.95 : 1,
     s: Math.random(), // per-particle seed (size / colour / speed variety)
+  };
+}
+function drawParticles(dt, P, rgb) {
