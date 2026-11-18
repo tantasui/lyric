@@ -1362,3 +1362,6 @@ const closePanel = () => { panel.classList.remove('open'); poke(); };
 $('#openPanel').addEventListener('click', openPanel);
 $('#hintLoad').addEventListener('click', openPanel);
 $('#closePanel').addEventListener('click', closePanel);
+$('#audioFile').addEventListener('change', (e) => loadAudioFile(e.target.files[0]));
+$('#lrcFile').addEventListener('change', (e) => { if (e.target.files[0]) readTextFile(e.target.files[0]); e.target.value = ''; });
+$('#applyBtn').addEventListener('click', () => applyLyrics($('#lrcText').value));
