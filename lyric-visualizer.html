@@ -1092,3 +1092,6 @@ function charStyle(c, e, mode) {
   return [`translate3d(${((1 - e) * c.rx).toFixed(3)}em,${((1 - e) * c.ry).toFixed(3)}em,0) rotate(${((1 - e) * c.rr).toFixed(1)}deg)`, Math.min(1, e * 1.6)];
 }
 
+function animateLine(line, lt, nowMs) {
+  const P = state.preset;
+
