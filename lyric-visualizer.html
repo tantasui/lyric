@@ -1193,3 +1193,6 @@ function updateLyrics(t, nowMs) {
   const idx = findLineIndex(lt);
 
   if (idx !== state.currentIndex) {
+    if (active) { retire(active); active = null; }
+    state.currentIndex = idx;
+    const entry = state.lines[idx];
