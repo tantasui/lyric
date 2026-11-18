@@ -948,3 +948,5 @@ function drawRing(P, rgb, t) {
     const L = 2 + barVals[i] * maxL;
     const c = Math.cos(a), s = Math.sin(a);
     g.moveTo(c * r, s * r);
+    g.lineTo(c * (r + L), s * (r + L));
+  }
