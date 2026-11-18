@@ -1199,3 +1199,6 @@ function updateLyrics(t, nowMs) {
     if (entry && entry.words.length) active = buildLine(entry); // empty line = instrumental gap
     updateNextLine(idx);
   }
+
+  const showIntro = !state.lines.length || lt < state.firstTextTime - 0.15;
+  if (showIntro !== introShown) { introEl.classList.toggle('show', showIntro); introShown = showIntro; }
