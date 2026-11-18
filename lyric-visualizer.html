@@ -628,3 +628,6 @@ function timeWords(e) {
   if (!n) return;
   const dur = Math.max(0.2, e.end - e.time);
   const span = Math.min(dur * 0.85, n * 0.9);
+  const weights = e.words.map((w) => w.text.length + 2);
+  const total = weights.reduce((a, b) => a + b, 0);
+  let acc = 0;
