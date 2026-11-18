@@ -714,3 +714,6 @@ function play() {
 }
 function pause() {
   if (state.audioLoaded) audioEl.pause();
+  else state.demoTime = getTime();
+  state.playing = false;
+  refreshPlayButton();
