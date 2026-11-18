@@ -1427,3 +1427,6 @@ function updateUI(t) {
   const sec = Math.floor(t);
   if (sec !== lastShownSec) {
     lastShownSec = sec;
+    tCur.textContent = fmtTime(t);
+    $('#tDur').textContent = fmtTime(d);
+  }
