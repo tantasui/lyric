@@ -794,3 +794,6 @@ function analyse(t, dt, nowSec) {
   const kick = bandAvg(40, 140); // narrow low band = kick drum region, best for beats
 
   A.bass += (bass - A.bass) * damp(18, dt);
+  A.mid += (mid - A.mid) * damp(12, dt);
+  A.high += (high - A.high) * damp(12, dt);
+  A.level = (A.bass + A.mid + A.high) / 3;
