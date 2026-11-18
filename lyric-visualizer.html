@@ -1240,3 +1240,6 @@ function refreshTitles() {
   $('#introArtist').textContent = artist + (state.meta.al ? (artist ? ' — ' : '') + state.meta.al : '');
   $('#npTitle').textContent = artist ? `${title} · ${artist}` : title;
   document.title = `${title} — Pulse`;
+}
+
+function readTextFile(file) {
