@@ -1084,3 +1084,6 @@ function buildLine(entry) {
   return { el, words, text: entry.text, glitchUntil: 0 };
 }
 
+/* How one character looks at eased progress e (0 → hidden, 1 → in place) */
+function charStyle(c, e, mode) {
+  if (mode === 'word')   return [`translate3d(0,${((1 - e) * 0.45).toFixed(3)}em,0)`, e];
