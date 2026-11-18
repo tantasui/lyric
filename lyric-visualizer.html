@@ -622,3 +622,6 @@ function parseLRC(src) {
 }
 
 /* Give every word a start/end. Without word tags, words are spread across
+   ~85% of the line duration, weighted by word length (longer word → more time). */
+function timeWords(e) {
+  const n = e.words.length;
