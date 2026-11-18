@@ -1439,3 +1439,6 @@ function updateUI(t) {
 
 /* =====================================================================
    12. MAIN LOOP — everything animates from here at display rate
+   ===================================================================== */
+let lastFrame = performance.now();
+function frame(now) {
