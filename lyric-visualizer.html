@@ -817,3 +817,6 @@ function analyse(t, dt, nowSec) {
 
     if (kick > mean * mul && kick > floor && kick >= A.prevKick && nowSec - A.lastBeat > refractory) {
       A.isBeat = true;
+      A.lastBeat = nowSec;
+      const strength = clamp((kick / (mean + 1e-4) - 1) * 2 + 0.45, 0.35, 1);
+      A.beat = Math.max(A.beat, strength);
