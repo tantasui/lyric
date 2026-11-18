@@ -933,3 +933,6 @@ function drawParticles(dt, P, rgb) {
 }
 
 /* --- Bars: ring --- */
+function drawRing(P, rgb, t) {
+  const n = barVals.length, total = n * 2;
+  const m = Math.min(W, H);
