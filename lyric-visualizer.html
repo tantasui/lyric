@@ -200,6 +200,18 @@ body.idle #topbar { transform: translateY(-12px); }
 .slider { display: flex; flex-direction: column; gap: 8px; min-width: 160px; }
 .slider label { display: flex; justify-content: space-between; gap: 8px; font-size: 12px; color: var(--muted); }
 .slider output { color: var(--text-2); font-family: var(--mono); font-variant-numeric: tabular-nums; }
+.slider { min-width: 216px; }
+/* − slider + : the buttons make fine adjustments easy on touch screens */
+.stepper { display: flex; align-items: center; gap: 8px; }
+.step {
+  flex: none; width: 28px; height: 28px; border-radius: 6px; display: grid; place-items: center;
+  border: 1px solid var(--faint); background: rgba(238,240,245,.03); color: var(--text-2); cursor: pointer;
+  touch-action: manipulation; -webkit-user-select: none; user-select: none;
+  transition: background-color .16s var(--ease), color .16s var(--ease), transform .16s var(--ease);
+}
+.step:hover { background: var(--hover); color: var(--fg); }
+.step:active { transform: scale(.94); }
+.step svg { width: 16px; height: 16px; }
 
 /* Range inputs: hairline track with a fill (--p = fill %). Settings fill in grey;
    only the seek bar's progress carries the accent. */
@@ -240,7 +252,8 @@ input[type=range]::-moz-range-thumb { width: 12px; height: 12px; border-radius: 
 
 /* Start hint */
 #hint {
-  position: fixed; left: 50%; bottom: 144px; transform: translateX(-50%);
+  /* --controls-h is measured in JS so the hint always clears the control bar */
+  position: fixed; left: 50%; bottom: calc(var(--controls-h, 128px) + 24px); transform: translateX(-50%);
   display: flex; flex-direction: column; align-items: center; gap: 12px;
   font-size: 13px; color: var(--text-2); text-align: center; width: max-content; max-width: calc(100% - 32px);
 }
@@ -313,11 +326,21 @@ body.dragging #dropOverlay { opacity: 1; }
   #nowPlaying { display: none; }
   #openPanel { margin-left: auto; }
   #controls { padding: 32px 16px 16px; }
-  .row { gap: 12px 16px; }
-  .slider { min-width: 0; flex: 1 1 40%; }
+  /* Phone control bar: the two settings side by side, then play · presets · fullscreen */
+  .row { display: grid; grid-template-columns: 48px 1fr 1fr 48px; gap: 16px; }
+  .row > .slider:nth-child(2) { grid-column: 1 / 3; grid-row: 1; }
+  .row > .slider:nth-child(3) { grid-column: 3 / 5; grid-row: 1; }
+  #playBtn { grid-column: 1; grid-row: 2; }
+  .presets { grid-column: 2 / 4; grid-row: 2; justify-self: center; }
+  #fsBtn { grid-column: 4; grid-row: 2; justify-self: end; }
+  .slider { min-width: 0; }
+  .step { width: 40px; height: 40px; border-radius: 8px; }
+  .kbd-hint { display: none; }
+  /* Centre the title card in the space above the control bar */
+  #intro { transform: translateY(calc(var(--controls-h, 128px) * -.5 + 36px)); }
+  #intro.show { transform: translateY(calc(var(--controls-h, 128px) * -.5 + 24px)); }
   .meters { display: none; }
   .spacer { display: none; }
-  #hint { bottom: 224px; }
   #nextLine { bottom: 30vh; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -354,7 +377,7 @@ body.dragging #dropOverlay { opacity: 1; }
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>
     <span id="hintWhat">Play demo</span>
   </button>
-  <span class="hint-sub"><span id="hintSub">Silent demo with a simulated beat</span> · <kbd>Space</kbd> to play or pause · <button id="hintLoad">Load your own song</button></span>
+  <span class="hint-sub"><span id="hintSub">Silent demo with a simulated beat</span> <span class="kbd-hint">· <kbd>Space</kbd> to play or pause</span> · <button id="hintLoad">Load your own song</button></span>
 </div>
 
 <footer id="controls" class="chrome">
@@ -368,11 +391,19 @@ body.dragging #dropOverlay { opacity: 1; }
 
     <div class="slider">
       <label for="offset">Lyric offset <output id="offsetOut">0.00s</output></label>
-      <input type="range" id="offset" min="-2" max="2" step="0.05" value="0" title="Double-click to reset">
+      <div class="stepper">
+        <button class="step" data-target="offset" data-step="-0.1" aria-label="Show lyrics 0.1s earlier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 12h14"/></svg></button>
+        <input type="range" id="offset" min="-2" max="2" step="0.05" value="0" title="Double-click to reset">
+        <button class="step" data-target="offset" data-step="0.1" aria-label="Show lyrics 0.1s later"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+      </div>
     </div>
     <div class="slider">
       <label for="sens">Beat sensitivity <output id="sensOut">5</output></label>
-      <input type="range" id="sens" min="1" max="10" step="0.5" value="5">
+      <div class="stepper">
+        <button class="step" data-target="sens" data-step="-0.5" aria-label="Lower beat sensitivity"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 12h14"/></svg></button>
+        <input type="range" id="sens" min="1" max="10" step="0.5" value="5">
+        <button class="step" data-target="sens" data-step="0.5" aria-label="Raise beat sensitivity"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+      </div>
     </div>
     <div class="meters" title="Bass / Mids / Highs"><i id="mB"></i><i id="mM"></i><i id="mH"></i></div>
 
@@ -1206,6 +1237,8 @@ function animateLine(line, lt, nowMs) {
       w.state = st;
     }
     if (st === 1) w.el.style.transform = `scale(${(1 + A.beat * P.punch * 1.8).toFixed(3)})`;
+    // Offset moved back before this word started → hide it again so it can re-reveal
+    if (w.settled && lt < w.start) w.settled = false;
     if (w.settled) continue;
 
     // In letter modes the letters of a word cascade in
@@ -1429,8 +1462,11 @@ function setOffset(v) {
   state.offset = clamp(Math.round(v * 100) / 100, -2, 2);
   offsetEl.value = state.offset;
   setRangeFill(offsetEl);
-  $('#offsetOut').textContent = (state.offset > 0 ? '+' : '') + state.offset.toFixed(2) + 's';
-  forceLyricRebuild();
+  // Show which way the lyrics moved, e.g. "+0.30s later"
+  const o = state.offset;
+  $('#offsetOut').textContent = o === 0 ? '0.00s' : `${o > 0 ? '+' : ''}${o.toFixed(2)}s ${o > 0 ? 'later' : 'earlier'}`;
+  // No rebuild: updateLyrics() reads state.offset every frame, so the
+  // current line and word highlight shift in place while you adjust.
 }
 function setSensitivity(v) {
   state.sensitivity = clamp(+v, 1, 10);
@@ -1454,6 +1490,25 @@ window.addEventListener('pointerup', () => { scrubbing = false; });
 offsetEl.addEventListener('input', () => setOffset(+offsetEl.value));
 offsetEl.addEventListener('dblclick', () => setOffset(0));
 sensEl.addEventListener('input', () => setSensitivity(sensEl.value));
+
+/* − / + buttons: tap for one step, hold to keep stepping */
+function stepControl(target, step) {
+  if (target === 'offset') setOffset(state.offset + step);
+  else setSensitivity(state.sensitivity + step);
+}
+document.querySelectorAll('.step').forEach((b) => {
+  let timer = 0;
+  const fire = () => stepControl(b.dataset.target, +b.dataset.step);
+  const stop = () => { clearTimeout(timer); clearInterval(timer); timer = 0; };
+  b.addEventListener('pointerdown', (e) => {
+    if (e.button !== 0) return;
+    e.preventDefault();
+    fire();
+    timer = setTimeout(() => { timer = setInterval(fire, 90); }, 400);
+  });
+  ['pointerup', 'pointerleave', 'pointercancel'].forEach((ev) => b.addEventListener(ev, stop));
+  b.addEventListener('click', (e) => { if (e.detail === 0) fire(); }); // keyboard Enter / Space
+});
 
 document.querySelectorAll('.presets button').forEach((b) => b.addEventListener('click', () => applyPreset(b.dataset.preset)));
 
@@ -1518,6 +1573,12 @@ document.querySelectorAll('#controls, #topbar').forEach((el) => {
   el.addEventListener('mouseenter', () => { overChrome = true; });
   el.addEventListener('mouseleave', () => { overChrome = false; poke(); });
 });
+
+/* Keep the start hint above the control bar, whatever its height (it wraps on phones) */
+const controlsEl = $('#controls');
+const syncControlsHeight = () => root.style.setProperty('--controls-h', controlsEl.offsetHeight + 'px');
+if ('ResizeObserver' in window) new ResizeObserver(syncControlsHeight).observe(controlsEl);
+syncControlsHeight();
 
 /* Per-frame UI: seek bar, time, beat dot, band meters */
 let lastShownSec = -1;
