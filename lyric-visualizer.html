@@ -915,3 +915,6 @@ function drawParticles(dt, P, rgb) {
   }
   // Warp star-field: particles fly towards the camera; bass/beat = speed
   const cx = W / 2, cy = H / 2, k = Math.max(W, H) * 0.45;
+  const speed = P.warpBase + A.bass * P.warpBass + A.beat * P.warpBeat;
+  g.lineCap = 'round';
+  for (const p of parts) {
