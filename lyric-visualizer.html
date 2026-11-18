@@ -1019,3 +1019,5 @@ function drawScene(dt, t) {
 
   // 5) Spectrum bars (Chaos shakes them a little on beats)
   g.save();
+  if (P.shake > 2) g.translate((Math.random() * 2 - 1) * A.beat * P.shake * 0.5, (Math.random() * 2 - 1) * A.beat * P.shake * 0.5);
+  if (P.bars === 'ring' || P.bars === 'both') drawRing(P, rgb, t);
