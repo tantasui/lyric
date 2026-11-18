@@ -735,3 +735,6 @@ audioEl.addEventListener('loadedmetadata', () => { $('#tDur').textContent = fmtT
 
 function loadAudioFile(file) {
   if (!file) return;
+  pause();
+  if (audioEl.src) URL.revokeObjectURL(audioEl.src);
+  audioEl.src = URL.createObjectURL(file);
