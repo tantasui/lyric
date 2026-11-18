@@ -865,3 +865,6 @@ function setupBars(n) {
   for (let i = 0; i < n; i++) {
     const f0 = fMin * Math.pow(fMax / fMin, i / n);
     const f1 = fMin * Math.pow(fMax / fMin, (i + 1) / n);
+    const a = Math.max(1, Math.floor(f0 / hz));
+    const b = Math.min(FFT / 2, Math.max(a + 1, Math.ceil(f1 / hz)));
+    barBins.push([a, b]);
