@@ -634,3 +634,6 @@ function timeWords(e) {
   const auto = weights.map((wt) => { const s = e.time + (span * acc) / total; acc += wt; return s; });
 
   const known = e.words.map((w, i) => (w.t != null ? i : -1)).filter((i) => i >= 0);
+  e.words.forEach((w, i) => {
+    if (!known.length) { w.start = auto[i]; return; }
+    if (w.t != null) { w.start = w.t; return; }
