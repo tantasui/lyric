@@ -921,3 +921,6 @@ function drawParticles(dt, P, rgb) {
     const zPrev = p.z;
     p.z -= speed * dt * (0.6 + p.s * 0.8);
     const x = cx + (p.x / p.z) * k, y = cy + (p.y / p.z) * k;
+    if (p.z <= 0.04 || x < -50 || x > W + 50 || y < -50 || y > H + 50) { Object.assign(p, newParticle(false)); continue; }
+    // Streak from where it was a moment ago → motion blur for free
+    const tail = Math.min(zPrev + speed * 0.06, 1.2);
