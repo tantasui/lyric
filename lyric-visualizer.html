@@ -1095,3 +1095,6 @@ function charStyle(c, e, mode) {
 function animateLine(line, lt, nowMs) {
   const P = state.preset;
 
+  // --- per-word reveal + karaoke highlight ---
+  for (const w of line.words) {
+    const st = lt < w.start ? 0 : lt < w.end ? 1 : 2; // 0 future, 1 current, 2 sung
