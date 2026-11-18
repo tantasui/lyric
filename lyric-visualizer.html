@@ -1264,3 +1264,6 @@ function applyPreset(key) {
   if (!PRESETS[key]) return;
   state.presetKey = key;
   state.preset = PRESETS[key];
+  document.body.dataset.preset = key;
+  const rgb = hexToRgb(state.preset.accent);
+  state.accentHsl = rgbToHsl(...rgb);
