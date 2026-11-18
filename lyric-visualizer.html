@@ -625,3 +625,6 @@ function parseLRC(src) {
    ~85% of the line duration, weighted by word length (longer word → more time). */
 function timeWords(e) {
   const n = e.words.length;
+  if (!n) return;
+  const dur = Math.max(0.2, e.end - e.time);
+  const span = Math.min(dur * 0.85, n * 0.9);
