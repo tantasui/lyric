@@ -1054,3 +1054,6 @@ function fitFontSize(text) {
   const P = state.preset;
   const width = Math.min(W * 0.88, 1450);
   const longest = Math.max(1, ...text.split(' ').map((s) => s.length));
+  // Aim for ≤ ~2.2 rows, and never let the longest word overflow
+  const byWidth = width / (P.charW * Math.max(longest, text.length / 2.2));
+  return Math.round(clamp(Math.min(byWidth, H * 0.16), 24, 170));
