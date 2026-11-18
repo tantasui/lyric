@@ -939,3 +939,6 @@ function drawRing(P, rgb, t) {
   const r = m * P.ringRadius * (1 + A.bass * 0.06 + A.beat * 0.05);
   const maxL = m * 0.16 * (1 + A.beat * 0.5);
   g.save();
+  g.translate(W / 2, H / 2);
+  g.rotate(t * P.ringSpin);
+  g.beginPath();
