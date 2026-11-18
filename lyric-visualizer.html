@@ -803,3 +803,6 @@ function analyse(t, dt, nowSec) {
      Sensitivity 1..10 lowers the multiplier & the noise floor. */
   A.isBeat = false;
   if (state.playing) {
+    const h = A.hist;
+    h.push(kick);
+    if (h.length > 60) h.shift();
