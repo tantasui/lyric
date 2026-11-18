@@ -956,3 +956,6 @@ function drawRing(P, rgb, t) {
   if (P.barGlow) { g.shadowColor = `rgba(${rgb},0.9)`; g.shadowBlur = P.barGlow * (8 + A.beat * 22); }
   g.stroke(); // one stroke for every bar = one shadow pass
   g.shadowBlur = 0;
+  g.beginPath();
+  g.arc(0, 0, r - 8, 0, Math.PI * 2);
+  g.strokeStyle = `rgba(255,255,255,${0.06 + A.beat * 0.3})`;
