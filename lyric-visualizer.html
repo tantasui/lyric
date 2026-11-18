@@ -1229,3 +1229,5 @@ function applyLyrics(text) {
   refreshTitles();
   const metaInfo = ['ti', 'ar', 'al'].filter((k) => meta[k]).length;
   setStatus(`Loaded ${lines.filter((l) => l.words.length).length} lyric lines${metaInfo ? ' + metadata' : ''}.`, 'ok');
+  if (!state.audioLoaded) $('#tDur').textContent = fmtTime(demoDuration());
+  return true;
