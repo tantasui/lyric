@@ -699,3 +699,6 @@ function getDuration() {
   return state.audioLoaded ? (isFinite(audioEl.duration) ? audioEl.duration : 0) : demoDuration();
 }
 
+function play() {
+  if (state.audioLoaded) {
+    ensureAudioGraph();
