@@ -687,3 +687,6 @@ function ensureAudioGraph() {
   src.connect(analyser);
   analyser.connect(actx.destination);
   sampleRate = actx.sampleRate;
+  setupBars(state.preset.barCount); // bar→bin mapping depends on sample rate
+}
+
