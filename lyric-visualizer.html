@@ -740,3 +740,6 @@ function loadAudioFile(file) {
   audioEl.src = URL.createObjectURL(file);
   state.audioLoaded = true;
   state.audioName = file.name.replace(/\.[^.]+$/, '');
+  state.demoTime = 0;
+  $('#audioName').textContent = file.name;
+  $('#modeChip').hidden = true;
