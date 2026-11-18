@@ -1030,3 +1030,6 @@ function drawScene(dt, t) {
     g.fillRect(0, 0, W, H);
   }
 
+  // 7) Film grain, jittered every frame
+  g.save();
+  g.globalAlpha = P.grain;
