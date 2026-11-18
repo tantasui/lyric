@@ -1270,3 +1270,6 @@ function applyPreset(key) {
   setAccent(rgb);
   lastHueShift = 999;
   setupBars(state.preset.barCount);
+  initParticles();
+  document.querySelectorAll('.presets button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.preset === key)));
+  // rebuild the current line so the new reveal/typography applies
