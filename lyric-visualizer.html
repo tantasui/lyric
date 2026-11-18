@@ -590,3 +590,6 @@ function parseLRC(src) {
     WORD_TAG.lastIndex = 0;
     while ((m = WORD_TAG.exec(line))) {
       pushText(line.slice(lastIdx, m.index), pendingT);
+      pendingT = toSec(m[1], m[2], m[3]);
+      lastIdx = m.index + m[0].length;
+    }
