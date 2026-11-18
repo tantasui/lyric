@@ -764,3 +764,6 @@ function synthSpectrum(t) {
     v += (70 + 55 * swell + 30 * Math.sin(t * 1.7 + i * 0.07)) * Math.exp(-f / 3800);
     if (f > 5000) v += 150 * hat * Math.exp(-(f - 5000) / 7000);
     v += Math.random() * 14;
+    freqData[i] = clamp(v, 0, 255);
+  }
+}
