@@ -604,3 +604,6 @@ function parseLRC(src) {
     }
   }
 
+  // [offset:+500] means "show lyrics 500 ms earlier"
+  const off = (parseFloat(meta.offset) || 0) / 1000;
+  entries.forEach((e) => {
