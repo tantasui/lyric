@@ -1098,3 +1098,6 @@ function animateLine(line, lt, nowMs) {
   // --- per-word reveal + karaoke highlight ---
   for (const w of line.words) {
     const st = lt < w.start ? 0 : lt < w.end ? 1 : 2; // 0 future, 1 current, 2 sung
+    if (st !== w.state) {
+      w.el.classList.toggle('current', st === 1);
+      w.el.classList.toggle('sung', st === 2);
