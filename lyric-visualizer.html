@@ -708,3 +708,6 @@ function play() {
     state.demoStartedAt = performance.now() - state.demoTime * 1000;
   }
   state.playing = true;
+  $('#hint').classList.add('gone');
+  refreshPlayButton();
+  poke();
