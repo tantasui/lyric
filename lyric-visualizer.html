@@ -856,3 +856,6 @@ grainTile.width = grainTile.height = 128;
   nctx.putImageData(img, 0, 0);
 }
 const grainPattern = g.createPattern(grainTile, 'repeat');
+
+/* --- Spectrum bars: log-spaced frequency buckets, smoothed with fast attack / slow release --- */
+let barBins = [], barVals = new Float32Array(0), barPeaks = new Float32Array(0);
