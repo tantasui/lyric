@@ -912,3 +912,6 @@ function drawParticles(dt, P, rgb) {
       g.beginPath(); g.arc(x, y, r, 0, Math.PI * 2); g.fill();
     }
     return;
+  }
+  // Warp star-field: particles fly towards the camera; bass/beat = speed
+  const cx = W / 2, cy = H / 2, k = Math.max(W, H) * 0.45;
