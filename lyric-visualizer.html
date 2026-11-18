@@ -581,3 +581,6 @@ function parseLRC(src) {
     }
     if (!times.length) continue; // not a lyric line
 
+    // Split into words, keeping any inline <mm:ss.xx> word timings
+    const words = [];
+    let lastIdx = 0, pendingT = null;
