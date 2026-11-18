@@ -226,3 +226,6 @@ input[type=range]::-moz-range-thumb {
 
 /* Tiny bass/mid/high meters so you can tune sensitivity by eye */
 .meters { display: flex; align-items: flex-end; gap: 4px; height: 28px; }
+.meters i {
+  display: block; width: 5px; height: 100%; background: var(--accent); border-radius: 2px;
+  transform-origin: bottom; transform: scaleY(.08); opacity: .85;
