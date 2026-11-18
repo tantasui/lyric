@@ -596,3 +596,5 @@ function parseLRC(src) {
     pushText(line.slice(lastIdx), pendingT);
 
     // One entry per timestamp; word times are shifted for repeated instances
+    for (const t of times) {
+      entries.push({
