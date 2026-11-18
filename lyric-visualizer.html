@@ -1122,3 +1122,6 @@ function animateLine(line, lt, nowMs) {
     });
     if (done) {
       w.settled = true;
+      w.chars.forEach((c) => { c.el.style.transform = 'none'; c.el.style.opacity = 1; });
+    }
+  }
