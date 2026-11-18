@@ -1388,3 +1388,6 @@ window.addEventListener('keydown', (e) => {
   const k = e.key;
   if (k === ' ' || k === 'k') { e.preventDefault(); togglePlay(); }
   else if (k === 'f' || k === 'F') toggleFullscreen();
+  else if (k === 'ArrowRight') { e.preventDefault(); seek(getTime() + 5); }
+  else if (k === 'ArrowLeft') { e.preventDefault(); seek(getTime() - 5); }
+  else if (k === '[') setOffset(state.offset - 0.05);
