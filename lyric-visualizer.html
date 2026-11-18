@@ -616,3 +616,6 @@ function parseLRC(src) {
   // Each line ends when the next one starts
   entries.forEach((e, i) => {
     e.end = i < entries.length - 1 ? entries[i + 1].time : e.time + Math.max(4, e.words.length * 0.6);
+    timeWords(e);
+  });
+  return { meta, lines: entries };
