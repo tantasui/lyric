@@ -392,9 +392,9 @@ body.dragging #dropOverlay { opacity: 1; }
     <div class="slider">
       <label for="offset">Lyric offset <output id="offsetOut">0.00s</output></label>
       <div class="stepper">
-        <button class="step" data-target="offset" data-step="-0.1" aria-label="Show lyrics 0.1s earlier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 12h14"/></svg></button>
-        <input type="range" id="offset" min="-15" max="15" step="0.05" value="0" title="Double-click to reset">
-        <button class="step" data-target="offset" data-step="0.1" aria-label="Show lyrics 0.1s later"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+        <button class="step" data-target="offset" data-step="-0.01" aria-label="Show lyrics 0.01s earlier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 12h14"/></svg></button>
+        <input type="range" id="offset" min="-15" max="15" step="0.01" value="0" title="Double-click to reset">
+        <button class="step" data-target="offset" data-step="0.01" aria-label="Show lyrics 0.01s later"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
       </div>
     </div>
     <div class="slider">
@@ -451,7 +451,7 @@ body.dragging #dropOverlay { opacity: 1; }
     <dl>
       <dt><kbd>Space</kbd></dt><dd>Play or pause</dd>
       <dt><kbd>←</kbd> <kbd>→</kbd></dt><dd>Seek 5s back or forward</dd>
-      <dt><kbd>[</kbd> <kbd>]</kbd></dt><dd>Nudge lyric offset by 0.05s</dd>
+      <dt><kbd>[</kbd> <kbd>]</kbd></dt><dd>Nudge lyric offset by 0.01s</dd>
       <dt><kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd></dt><dd>Minimal / Neon / Chaos</dd>
       <dt><kbd>F</kbd></dt><dd>Fullscreen</dd>
       <dt><kbd>L</kbd></dt><dd>Open this panel</dd>
@@ -1549,8 +1549,8 @@ window.addEventListener('keydown', (e) => {
   else if (k === 'f' || k === 'F') toggleFullscreen();
   else if (k === 'ArrowRight') { e.preventDefault(); seek(getTime() + 5); }
   else if (k === 'ArrowLeft') { e.preventDefault(); seek(getTime() - 5); }
-  else if (k === '[') setOffset(state.offset - 0.05);
-  else if (k === ']') setOffset(state.offset + 0.05);
+  else if (k === '[') setOffset(state.offset - 0.01);
+  else if (k === ']') setOffset(state.offset + 0.01);
   else if (k === '1') applyPreset('minimal');
   else if (k === '2') applyPreset('neon');
   else if (k === '3') applyPreset('chaos');
