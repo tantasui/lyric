@@ -1288,3 +1288,6 @@ function updateColourShift() {
   lastHueShift = shift;
   const [h, s, l] = state.accentHsl;
   setAccent(hslToRgb((h + shift + 360) % 360, s, l));
+}
+
+/* =====================================================================
