@@ -918,3 +918,6 @@ function drawParticles(dt, P, rgb) {
   const speed = P.warpBase + A.bass * P.warpBass + A.beat * P.warpBeat;
   g.lineCap = 'round';
   for (const p of parts) {
+    const zPrev = p.z;
+    p.z -= speed * dt * (0.6 + p.s * 0.8);
+    const x = cx + (p.x / p.z) * k, y = cy + (p.y / p.z) * k;
