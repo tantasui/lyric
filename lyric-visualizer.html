@@ -965,3 +965,6 @@ function drawRing(P, rgb, t) {
 }
 
 /* --- Bars: row along the bottom (bass in the centre, highs at the edges) --- */
+function drawRow(P, rgb) {
+  const n = barVals.length, total = n * 2;
+  const margin = W * 0.03, bw = (W - margin * 2) / total, gap = Math.max(1, bw * 0.3);
