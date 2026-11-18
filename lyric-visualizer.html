@@ -1415,3 +1415,6 @@ document.querySelectorAll('#controls, #topbar').forEach((el) => {
   el.addEventListener('mouseleave', () => { overChrome = false; poke(); });
 });
 
+/* Per-frame UI: seek bar, time, beat dot, band meters */
+let lastShownSec = -1;
+const tCur = $('#tCur'), beatDot = $('#beatDot'), mB = $('#mB'), mM = $('#mM'), mH = $('#mH');
