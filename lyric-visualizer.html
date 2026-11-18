@@ -1146,3 +1146,6 @@ function animateLine(line, lt, nowMs) {
 
 /* Stylish exits, using the Web Animations API (runs off our rAF loop) */
 function retire(line) {
+  const el = line.el;
+  el.classList.remove('glitch');
+  el.style.removeProperty('--glow');
