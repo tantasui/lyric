@@ -1282,3 +1282,6 @@ function applyPreset(key) {
 /* Beat-driven hue nudge (only when the preset asks for it) */
 function updateColourShift() {
   const P = state.preset;
+  if (!P.colorShift) return;
+  const shift = A.beat * P.colorShift * 70;
+  if (Math.abs(shift - lastHueShift) < 0.8) return;
