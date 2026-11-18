@@ -442,3 +442,6 @@ const fmtTime = (s) => {
   if (!isFinite(s) || s < 0) s = 0;
   return Math.floor(s / 60) + ':' + String(Math.floor(s % 60)).padStart(2, '0');
 };
+const hexToRgb = (hex) => {
+  const n = parseInt(hex.slice(1), 16);
+  return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
