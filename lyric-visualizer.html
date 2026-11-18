@@ -1471,3 +1471,6 @@ refreshPlayButton();
 refreshFsButton();
 $('#lrcText').value = SAMPLE_LRC;
 applyLyrics(SAMPLE_LRC);
+setStatus('Sample loaded. Paste your own LRC above, or open a .lrc file.');
+poke();
+requestAnimationFrame(frame);
