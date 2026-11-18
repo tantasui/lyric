@@ -572,3 +572,6 @@ function parseLRC(src) {
     const metaM = line.match(/^\[([a-zA-Z]+)\s*:(.*)\]$/);
     if (metaM) { meta[metaM[1].toLowerCase()] = metaM[2].trim(); continue; }
 
+    // Collect all leading timestamps: [00:20.00][00:36.00]Chorus line
+    const times = [];
+    let m;
