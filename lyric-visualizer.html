@@ -1430,3 +1430,6 @@ function updateUI(t) {
     tCur.textContent = fmtTime(t);
     $('#tDur').textContent = fmtTime(d);
   }
+  beatDot.style.opacity = (0.3 + A.beat * 0.7).toFixed(3);
+  beatDot.style.transform = `scale(${(1 + A.beat * 0.9).toFixed(3)})`;
+  mB.style.transform = `scaleY(${clamp(0.08 + A.bass * 1.1, 0.08, 1).toFixed(3)})`;
