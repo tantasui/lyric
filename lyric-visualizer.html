@@ -882,3 +882,6 @@ function updateBars(dt) {
     const v = clamp(Math.pow(m / 255, 1.7) * (1 + (i / n) * 0.6), 0, 1);
     const rate = v > barVals[i] ? 28 : 7; // fast up, slow down = no jitter
     barVals[i] += (v - barVals[i]) * damp(rate, dt);
+    barPeaks[i] = Math.max(barPeaks[i] - dt * 0.35, barVals[i]);
+  }
+}
