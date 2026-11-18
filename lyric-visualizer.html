@@ -743,3 +743,6 @@ function loadAudioFile(file) {
   state.demoTime = 0;
   $('#audioName').textContent = file.name;
   $('#modeChip').hidden = true;
+  $('#hint').classList.add('gone');
+  refreshTitles();
+  forceLyricRebuild();
