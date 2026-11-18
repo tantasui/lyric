@@ -1447,3 +1447,6 @@ function frame(now) {
 
   // Demo clock reached the end → stop and rewind
   if (!state.audioLoaded && state.playing && getTime() >= getDuration()) { pause(); seek(0); }
+  const t = getTime();
+
+  analyse(t, dt, now / 1000);
