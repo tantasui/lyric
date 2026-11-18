@@ -643,3 +643,6 @@ function timeWords(e) {
     const a = prev != null ? e.words[prev].t : e.time;
     const ai = prev != null ? prev : -1;
     const b = next != null ? e.words[next].t : Math.max(a + 0.3, e.time + span);
+    const bi = next != null ? next : n;
+    w.start = a + ((b - a) * (i - ai)) / (bi - ai);
+  });
