@@ -87,3 +87,6 @@ button { font: inherit; color: inherit; }
 .line.glitch .word::before { color: var(--accent); transform: translateX(var(--gx, .05em)); clip-path: inset(10% 0 54% 0); }
 .line.glitch .word::after  { color: #fff; transform: translateX(calc(var(--gx, .05em) * -1)); clip-path: inset(60% 0 4% 0); opacity: .85; }
 
+/* Preset typography tweaks */
+body[data-preset="minimal"] .line {
+  font-family: var(--ui-font); font-weight: 800; text-transform: none;
