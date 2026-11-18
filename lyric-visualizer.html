@@ -779,3 +779,6 @@ const A = { bass: 0, mid: 0, high: 0, level: 0, beat: 0, isBeat: false, lastBeat
 
 function bandAvg(f0, f1) {
   const hz = sampleRate / FFT;
+  const a = Math.max(1, Math.floor(f0 / hz));
+  const b = Math.min(freqData.length - 1, Math.ceil(f1 / hz));
+  let s = 0;
