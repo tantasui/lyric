@@ -1090,3 +1090,5 @@ function charStyle(c, e, mode) {
   if (mode === 'letter') return [`translate3d(0,${((1 - e) * -0.5).toFixed(3)}em,0) scale(${(1 + (1 - e) * 0.9).toFixed(3)})`, e];
   // chaos: letters fly in from random directions with spin
   return [`translate3d(${((1 - e) * c.rx).toFixed(3)}em,${((1 - e) * c.ry).toFixed(3)}em,0) rotate(${((1 - e) * c.rr).toFixed(1)}deg)`, Math.min(1, e * 1.6)];
+}
+
