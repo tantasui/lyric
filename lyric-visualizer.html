@@ -696,3 +696,6 @@ function getTime() {
   return state.playing ? (performance.now() - state.demoStartedAt) / 1000 : state.demoTime;
 }
 function getDuration() {
+  return state.audioLoaded ? (isFinite(audioEl.duration) ? audioEl.duration : 0) : demoDuration();
+}
+
