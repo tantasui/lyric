@@ -942,3 +942,6 @@ function drawRing(P, rgb, t) {
   g.translate(W / 2, H / 2);
   g.rotate(t * P.ringSpin);
   g.beginPath();
+  for (let k = 0; k < total; k++) {
+    const i = k < n ? k : total - 1 - k; // mirror: lows at the top, highs at the bottom
+    const a = (k / total) * Math.PI * 2 - Math.PI / 2;
