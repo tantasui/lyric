@@ -244,12 +244,19 @@ input[type=range]::-moz-range-thumb {
 
 /* Start hint */
 #hint {
-  position: fixed; left: 50%; bottom: 150px; transform: translateX(-50%);
-  font-size: 13px; color: var(--muted); text-align: center; white-space: nowrap;
+  position: fixed; left: 50%; bottom: 140px; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+  font-size: 13px; color: var(--muted); text-align: center; width: max-content; max-width: calc(100% - 32px);
   transition: opacity .6s;
 }
 #hint.gone { opacity: 0; pointer-events: none; }
-#hint button { background: none; border: 0; color: var(--accent); cursor: pointer; padding: 0; text-decoration: underline; text-underline-offset: 3px; }
+#hintPlay {
+  height: 48px; padding: 0 26px 0 20px; font-size: 15px;
+  box-shadow: 0 0 40px rgba(var(--accent-rgb), .35);
+}
+#hintPlay svg { width: 16px; height: 16px; fill: currentColor; }
+#hintPlay:hover { transform: scale(1.04); }
+.hint-sub button { background: none; border: 0; color: var(--accent); cursor: pointer; padding: 0; text-decoration: underline; text-underline-offset: 3px; }
 kbd {
   font-family: var(--mono); font-size: 11px; padding: 2px 6px; border-radius: 4px;
   border: 1px solid var(--faint); background: rgba(255,255,255,.06); color: var(--fg);
@@ -316,7 +323,7 @@ body.dragging #dropOverlay { opacity: 1; }
   .slider { min-width: 0; flex: 1 1 40%; }
   .meters { display: none; }
   .spacer { display: none; }
-  #hint { bottom: 210px; white-space: normal; width: calc(100% - 32px); }
+  #hint { bottom: 225px; }
   #nextLine { bottom: 30vh; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -349,7 +356,11 @@ body.dragging #dropOverlay { opacity: 1; }
 </header>
 
 <div id="hint" class="chrome">
-  Press <kbd>Space</kbd> to play the built-in sample (silent, simulated beat) — or <button id="hintLoad">load your own song</button>
+  <button class="btn primary" id="hintPlay">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>
+    <span id="hintWhat">Play demo</span>
+  </button>
+  <span class="hint-sub"><span id="hintSub">Silent demo with a simulated beat</span> · <kbd>Space</kbd> play/pause · <button id="hintLoad">load your own song</button></span>
 </div>
 
 <footer id="controls" class="chrome">
@@ -1361,6 +1372,9 @@ const openPanel = () => { panel.classList.add('open'); poke(); };
 const closePanel = () => { panel.classList.remove('open'); poke(); };
 $('#openPanel').addEventListener('click', openPanel);
 $('#hintLoad').addEventListener('click', openPanel);
+$('#hintPlay').addEventListener('click', play);
+// Clicking / tapping the visuals themselves also toggles playback
+canvas.addEventListener('click', togglePlay);
 $('#closePanel').addEventListener('click', closePanel);
 $('#audioFile').addEventListener('change', (e) => loadAudioFile(e.target.files[0]));
 $('#lrcFile').addEventListener('change', (e) => { if (e.target.files[0]) readTextFile(e.target.files[0]); e.target.value = ''; });
