@@ -54,3 +54,6 @@ button { font: inherit; color: inherit; }
 }
 /* Every line (current + exiting ones) sits in the same grid cell so they overlap */
 #lineWrap { display: grid; place-items: center; width: 100%; }
+#lineWrap > .line { grid-area: 1 / 1; }
+
+.line {
