@@ -678,3 +678,6 @@ let actx = null, analyser = null, sampleRate = 44100;
 const freqData = new Uint8Array(FFT / 2);
 
 function ensureAudioGraph() {
+  if (actx) return;
+  actx = new (window.AudioContext || window.webkitAudioContext)();
+  const src = actx.createMediaElementSource(audioEl);
