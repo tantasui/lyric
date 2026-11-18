@@ -433,3 +433,6 @@ body.dragging #dropOverlay { opacity: 1; }
    ===================================================================== */
 const $ = (s) => document.querySelector(s);
 const clamp = (v, a, b) => (v < a ? a : v > b ? b : v);
+const lerp = (a, b, t) => a + (b - a) * t;
+// Frame-rate independent smoothing factor: x += (target - x) * damp(rate, dt)
+const damp = (rate, dt) => 1 - Math.exp(-rate * dt);
