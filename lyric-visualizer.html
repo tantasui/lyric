@@ -820,3 +820,6 @@ function analyse(t, dt, nowSec) {
       A.lastBeat = nowSec;
       const strength = clamp((kick / (mean + 1e-4) - 1) * 2 + 0.45, 0.35, 1);
       A.beat = Math.max(A.beat, strength);
+    }
+  }
+  A.prevKick = kick;
