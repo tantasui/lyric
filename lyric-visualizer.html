@@ -1110,3 +1110,6 @@ function animateLine(line, lt, nowMs) {
     // In letter modes the letters of a word cascade in
     const stagger = P.reveal === 'word' ? 0 : Math.min(0.04, ((w.end - w.start) * 0.6) / Math.max(1, w.chars.length));
     let done = true;
+    w.chars.forEach((c, ci) => {
+      const p = clamp((lt - w.start - ci * stagger) / P.enter, 0, 1);
+      if (p < 1) done = false;
