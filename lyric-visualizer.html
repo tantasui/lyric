@@ -732,3 +732,6 @@ audioEl.addEventListener('ended', () => { state.playing = false; refreshPlayButt
 audioEl.addEventListener('pause', () => { if (state.playing) { state.playing = false; refreshPlayButton(); } });
 audioEl.addEventListener('play', () => { if (!state.playing) { state.playing = true; refreshPlayButton(); } });
 audioEl.addEventListener('loadedmetadata', () => { $('#tDur').textContent = fmtTime(getDuration()); });
+
+function loadAudioFile(file) {
+  if (!file) return;
