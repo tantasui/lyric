@@ -950,3 +950,6 @@ function drawRing(P, rgb, t) {
     g.moveTo(c * r, s * r);
     g.lineTo(c * (r + L), s * (r + L));
   }
+  g.lineWidth = Math.max(1.5, ((2 * Math.PI * r) / total) * 0.5);
+  g.lineCap = 'round';
+  g.strokeStyle = `rgba(${rgb},${P.barAlpha})`;
