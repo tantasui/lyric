@@ -1258,3 +1258,6 @@ function setAccent(rgb) {
   state.accentRgbStr = rgb.join(',');
   root.style.setProperty('--accent-rgb', state.accentRgbStr);
   root.style.setProperty('--accent', `rgb(${state.accentRgbStr})`);
+}
+
+function applyPreset(key) {
