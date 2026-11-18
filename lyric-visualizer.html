@@ -1373,3 +1373,6 @@ window.addEventListener('dragenter', (e) => { e.preventDefault(); dragDepth++; d
 window.addEventListener('dragleave', () => { if (--dragDepth <= 0) { dragDepth = 0; document.body.classList.remove('dragging'); } });
 window.addEventListener('dragover', (e) => e.preventDefault());
 window.addEventListener('drop', (e) => {
+  e.preventDefault();
+  dragDepth = 0;
+  document.body.classList.remove('dragging');
