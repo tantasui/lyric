@@ -720,3 +720,6 @@ function pause() {
   poke();
 }
 const togglePlay = () => (state.playing ? pause() : play());
+
+function seek(t) {
+  t = clamp(t, 0, getDuration() || 0);
