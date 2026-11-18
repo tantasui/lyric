@@ -1305,3 +1305,6 @@ const offsetEl = $('#offset'), sensEl = $('#sens'), panel = $('#panel');
 function refreshPlayButton() {
   playBtn.innerHTML = state.playing ? ICONS.pause : ICONS.play;
   playBtn.setAttribute('aria-label', state.playing ? 'Pause' : 'Play');
+}
+function refreshFsButton() {
+  const on = !!(document.fullscreenElement || document.webkitFullscreenElement);
