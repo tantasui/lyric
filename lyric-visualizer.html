@@ -1104,3 +1104,6 @@ function animateLine(line, lt, nowMs) {
       if (st !== 1) w.el.style.transform = '';
       w.state = st;
     }
+    if (st === 1) w.el.style.transform = `scale(${(1 + A.beat * P.punch * 1.8).toFixed(3)})`;
+    if (w.settled) continue;
+
