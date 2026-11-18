@@ -1409,3 +1409,6 @@ function poke() {
     if (state.playing && !panel.classList.contains('open') && !overChrome) document.body.classList.add('idle');
   }, 2500);
 }
+['mousemove', 'mousedown', 'touchstart', 'wheel'].forEach((ev) => window.addEventListener(ev, poke, { passive: true }));
+document.querySelectorAll('#controls, #topbar').forEach((el) => {
+  el.addEventListener('mouseenter', () => { overChrome = true; });
