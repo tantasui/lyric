@@ -945,3 +945,6 @@ function drawRing(P, rgb, t) {
   for (let k = 0; k < total; k++) {
     const i = k < n ? k : total - 1 - k; // mirror: lows at the top, highs at the bottom
     const a = (k / total) * Math.PI * 2 - Math.PI / 2;
+    const L = 2 + barVals[i] * maxL;
+    const c = Math.cos(a), s = Math.sin(a);
+    g.moveTo(c * r, s * r);
