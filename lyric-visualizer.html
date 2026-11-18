@@ -841,3 +841,6 @@ function resize() {
   g.setTransform(dpr, 0, 0, dpr, 0, 0); // draw in CSS pixels
   if (active) active.el.style.fontSize = fitFontSize(active.text) + 'px';
 }
+
+// Pre-rendered film grain tile
+const grainTile = document.createElement('canvas');
