@@ -853,3 +853,6 @@ grainTile.width = grainTile.height = 128;
     img.data[i] = img.data[i + 1] = img.data[i + 2] = v;
     img.data[i + 3] = 255;
   }
+  nctx.putImageData(img, 0, 0);
+}
+const grainPattern = g.createPattern(grainTile, 'repeat');
