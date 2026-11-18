@@ -729,3 +729,6 @@ function seek(t) {
 }
 
 audioEl.addEventListener('ended', () => { state.playing = false; refreshPlayButton(); poke(); });
+audioEl.addEventListener('pause', () => { if (state.playing) { state.playing = false; refreshPlayButton(); } });
+audioEl.addEventListener('play', () => { if (!state.playing) { state.playing = true; refreshPlayButton(); } });
+audioEl.addEventListener('loadedmetadata', () => { $('#tDur').textContent = fmtTime(getDuration()); });
