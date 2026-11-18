@@ -119,3 +119,6 @@ body[data-preset="minimal"] .line {
 #nextLine.show { opacity: .7; }
 
 /* ---------- Chrome (top bar, controls, hint, panel) ---------- */
+.chrome { transition: opacity .6s ease, transform .6s ease; }
+body.idle .chrome { opacity: 0; pointer-events: none; }
+body.idle #controls { transform: translateY(14px); }
