@@ -1350,3 +1350,6 @@ seekEl.addEventListener('input', () => { scrubbing = true; seek((seekEl.value / 
 seekEl.addEventListener('change', () => { scrubbing = false; });
 window.addEventListener('pointerup', () => { scrubbing = false; });
 
+offsetEl.addEventListener('input', () => setOffset(+offsetEl.value));
+offsetEl.addEventListener('dblclick', () => setOffset(0));
+sensEl.addEventListener('input', () => setSensitivity(sensEl.value));
