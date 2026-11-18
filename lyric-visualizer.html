@@ -430,3 +430,6 @@ body.dragging #dropOverlay { opacity: 1; }
 
 /* =====================================================================
    0. SMALL HELPERS
+   ===================================================================== */
+const $ = (s) => document.querySelector(s);
+const clamp = (v, a, b) => (v < a ? a : v > b ? b : v);
