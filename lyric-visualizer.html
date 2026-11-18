@@ -1202,3 +1202,6 @@ function updateLyrics(t, nowMs) {
 
   const showIntro = !state.lines.length || lt < state.firstTextTime - 0.15;
   if (showIntro !== introShown) { introEl.classList.toggle('show', showIntro); introShown = showIntro; }
+  nextEl.classList.toggle('show', !!(state.preset.showNext && nextEl.textContent && !showIntro));
+
+  if (active) animateLine(active, lt, nowMs);
