@@ -776,3 +776,6 @@ function synthSpectrum(t) {
      A.isBeat                 true only on the frame a beat fires
    ===================================================================== */
 const A = { bass: 0, mid: 0, high: 0, level: 0, beat: 0, isBeat: false, lastBeat: -1, prevKick: 0, hist: [] };
+
+function bandAvg(f0, f1) {
+  const hz = sampleRate / FFT;
