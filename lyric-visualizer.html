@@ -1158,3 +1158,5 @@ function retire(line) {
         [{ transform: `translate3d(${Math.cos(a) * d}px,${Math.sin(a) * d}px,0) rotate(${(Math.random() * 2 - 1) * 240}deg) scale(${0.3 + Math.random()})`, opacity: 0 }],
         { duration: 600 + Math.random() * 400, easing: 'cubic-bezier(.2,.7,.3,1)', fill: 'forwards' });
     }
+    setTimeout(() => el.remove(), 1050);
+  } else {
