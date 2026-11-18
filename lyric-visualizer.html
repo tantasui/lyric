@@ -1066,3 +1066,6 @@ function buildLine(entry) {
   el.style.fontSize = fitFontSize(entry.text) + 'px';
   const words = entry.words.map((w) => {
     const we = document.createElement('span');
+    we.className = 'word';
+    we.dataset.w = w.text;
+    we.setAttribute('aria-hidden', 'true');
