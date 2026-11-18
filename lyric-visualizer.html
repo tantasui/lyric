@@ -158,3 +158,6 @@ body.idle #topbar { transform: translateY(-14px); }
   transition: background .2s, border-color .2s, color .2s;
 }
 .btn:hover { background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.25); }
+.btn.primary { background: var(--accent); color: #050507; border-color: transparent; font-weight: 600; }
+.btn.primary:hover { filter: brightness(1.1); background: var(--accent); }
+.btn input[type=file] { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
