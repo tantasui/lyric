@@ -1356,3 +1356,6 @@ sensEl.addEventListener('input', () => setSensitivity(sensEl.value));
 
 document.querySelectorAll('.presets button').forEach((b) => b.addEventListener('click', () => applyPreset(b.dataset.preset)));
 
+// Panel
+const openPanel = () => { panel.classList.add('open'); poke(); };
+const closePanel = () => { panel.classList.remove('open'); poke(); };
