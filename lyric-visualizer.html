@@ -1175,3 +1175,6 @@ function findLineIndex(t) {
   let lo = 0, hi = L.length - 1, ans = -1;
   while (lo <= hi) {
     const mid = (lo + hi) >> 1;
+    if (L[mid].time <= t) { ans = mid; lo = mid + 1; } else hi = mid - 1;
+  }
+  return ans;
