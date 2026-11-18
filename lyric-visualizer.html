@@ -974,3 +974,6 @@ function drawRow(P, rgb) {
   grad.addColorStop(1, `rgba(${rgb},${P.barAlpha * 0.12})`);
   g.fillStyle = grad;
   for (let k = 0; k < total; k++) {
+    const i = k < n ? n - 1 - k : k - n;
+    const h = 2 + barVals[i] * maxH;
+    g.fillRect(margin + k * bw, H - h, bw - gap, h);
