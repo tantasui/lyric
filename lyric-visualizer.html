@@ -246,3 +246,6 @@ input[type=range]::-moz-range-thumb {
 #hint {
   position: fixed; left: 50%; bottom: 150px; transform: translateX(-50%);
   font-size: 13px; color: var(--muted); text-align: center; white-space: nowrap;
+  transition: opacity .6s;
+}
+#hint.gone { opacity: 0; pointer-events: none; }
