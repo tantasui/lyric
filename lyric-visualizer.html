@@ -1421,3 +1421,6 @@ const tCur = $('#tCur'), beatDot = $('#beatDot'), mB = $('#mB'), mM = $('#mM'), 
 function updateUI(t) {
   const d = getDuration();
   if (!scrubbing && d) {
+    seekEl.value = (t / d) * 1000;
+    seekEl.style.setProperty('--p', ((t / d) * 100).toFixed(2) + '%');
+  }
