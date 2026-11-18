@@ -749,3 +749,6 @@ function loadAudioFile(file) {
 }
 
 /* Synthetic spectrum for demo mode: a 120 BPM kick, off-beat hats and a
+   slowly moving pad. It runs through the exact same analysis as real audio. */
+function synthSpectrum(t) {
+  const hz = sampleRate / FFT;
