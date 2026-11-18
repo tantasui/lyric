@@ -711,3 +711,6 @@ function play() {
   $('#hint').classList.add('gone');
   refreshPlayButton();
   poke();
+}
+function pause() {
+  if (state.audioLoaded) audioEl.pause();
