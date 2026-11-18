@@ -1424,3 +1424,6 @@ function updateUI(t) {
     seekEl.value = (t / d) * 1000;
     seekEl.style.setProperty('--p', ((t / d) * 100).toFixed(2) + '%');
   }
+  const sec = Math.floor(t);
+  if (sec !== lastShownSec) {
+    lastShownSec = sec;
