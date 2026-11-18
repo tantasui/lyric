@@ -814,3 +814,6 @@ function analyse(t, dt, nowSec) {
     const mul = lerp(1.55, 1.06, s);     // how far above average counts as a beat
     const floor = lerp(0.32, 0.07, s);   // ignore near-silence
     const refractory = 0.2;              // min seconds between beats (caps at 300 BPM)
+
+    if (kick > mean * mul && kick > floor && kick >= A.prevKick && nowSec - A.lastBeat > refractory) {
+      A.isBeat = true;
