@@ -791,3 +791,6 @@ function analyse(t, dt, nowSec) {
   else synthSpectrum(t);
 
   const bass = bandAvg(20, 250), mid = bandAvg(250, 4000), high = bandAvg(4000, 14000);
+  const kick = bandAvg(40, 140); // narrow low band = kick drum region, best for beats
+
+  A.bass += (bass - A.bass) * damp(18, dt);
