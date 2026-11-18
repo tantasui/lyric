@@ -640,3 +640,6 @@ function timeWords(e) {
     // Interpolate between neighbouring known word times
     const prev = known.filter((k) => k < i).pop();
     const next = known.find((k) => k > i);
+    const a = prev != null ? e.words[prev].t : e.time;
+    const ai = prev != null ? prev : -1;
+    const b = next != null ? e.words[next].t : Math.max(a + 0.3, e.time + span);
