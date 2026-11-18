@@ -891,3 +891,6 @@ let parts = [];
 function initParticles() {
   parts = [];
   for (let i = 0; i < state.preset.particles; i++) parts.push(newParticle(true));
+}
+function newParticle(anyDepth) {
+  return {
