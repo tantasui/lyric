@@ -752,3 +752,6 @@ function loadAudioFile(file) {
    slowly moving pad. It runs through the exact same analysis as real audio. */
 function synthSpectrum(t) {
   const hz = sampleRate / FFT;
+  if (!state.playing) { freqData.fill(0); return; }
+  const beatLen = 0.5;                                   // 120 BPM
+  const kick = Math.exp(-((t % beatLen) / beatLen) * 9);
