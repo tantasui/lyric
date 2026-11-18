@@ -782,3 +782,6 @@ function bandAvg(f0, f1) {
   const a = Math.max(1, Math.floor(f0 / hz));
   const b = Math.min(freqData.length - 1, Math.ceil(f1 / hz));
   let s = 0;
+  for (let i = a; i <= b; i++) s += freqData[i];
+  return s / ((b - a + 1) * 255);
+}
