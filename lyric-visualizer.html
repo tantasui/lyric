@@ -806,3 +806,5 @@ function analyse(t, dt, nowSec) {
     const h = A.hist;
     h.push(kick);
     if (h.length > 60) h.shift();
+    let mean = 0;
+    for (const v of h) mean += v;
