@@ -125,7 +125,7 @@ body[data-preset="minimal"] .line {
    Quiet on purpose: off-white and greys from one ramp, 4px spacing grid,
    one easing curve. The accent appears only on the seek progress, the
    active preset and the beat light. */
-.chrome { transition: opacity .5s var(--ease), transform .5s var(--ease); }
+.chrome { transition: opacity .3s var(--ease), transform .3s var(--ease); }
 body.idle .chrome { opacity: 0; pointer-events: none; }
 body.idle #controls { transform: translateY(12px); }
 body.idle #topbar { transform: translateY(-12px); }
@@ -1560,18 +1560,20 @@ window.addEventListener('keydown', (e) => {
 });
 
 /* Idle hiding: chrome + cursor fade out after 2.5 s without input while playing */
+const IDLE_MS = 1200; // how long without input before the controls fade out
 let idleTimer = 0, overChrome = false;
 function poke() {
   document.body.classList.remove('idle');
   clearTimeout(idleTimer);
   idleTimer = setTimeout(() => {
     if (state.playing && !panel.classList.contains('open') && !overChrome) document.body.classList.add('idle');
-  }, 2500);
+  }, IDLE_MS);
 }
 ['mousemove', 'mousedown', 'touchstart', 'wheel'].forEach((ev) => window.addEventListener(ev, poke, { passive: true }));
 document.querySelectorAll('#controls, #topbar').forEach((el) => {
-  el.addEventListener('mouseenter', () => { overChrome = true; });
-  el.addEventListener('mouseleave', () => { overChrome = false; poke(); });
+  // Mouse only: on touch screens a tap would otherwise "hover" forever and pin the controls
+  el.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') overChrome = true; });
+  el.addEventListener('pointerleave', (e) => { if (e.pointerType === 'mouse') { overChrome = false; poke(); } });
 });
 
 /* Keep the start hint above the control bar, whatever its height (it wraps on phones) */
