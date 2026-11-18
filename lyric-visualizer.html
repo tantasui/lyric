@@ -785,3 +785,6 @@ function bandAvg(f0, f1) {
   for (let i = a; i <= b; i++) s += freqData[i];
   return s / ((b - a + 1) * 255);
 }
+
+function analyse(t, dt, nowSec) {
+  if (state.audioLoaded && analyser) analyser.getByteFrequencyData(freqData);
