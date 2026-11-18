@@ -279,3 +279,6 @@ kbd {
   display: flex; flex-direction: column; gap: 4px; padding: 18px; border-radius: 12px; cursor: pointer;
   border: 1px dashed rgba(255,255,255,.22); background: rgba(255,255,255,.03);
   transition: border-color .2s, background .2s; position: relative;
+}
+.drop:hover, .drop:focus-within { border-color: var(--accent); background: rgba(var(--accent-rgb), .06); }
+.drop input { position: absolute; width: 1px; height: 1px; opacity: 0; }
