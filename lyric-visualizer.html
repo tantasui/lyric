@@ -78,3 +78,6 @@ button { font: inherit; color: inherit; }
 .word.sung    { color: var(--fg); }
 
 /* Glitch: two clipped, offset copies of each visible word (Chaos preset) */
+.line.glitch .word.current::before, .line.glitch .word.current::after,
+.line.glitch .word.sung::before,    .line.glitch .word.sung::after {
+  content: attr(data-w);
