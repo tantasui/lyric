@@ -1155,3 +1155,6 @@ function retire(line) {
     for (const w of line.words) for (const c of w.chars) {
       const a = Math.random() * Math.PI * 2, d = 160 + Math.random() * 380;
       c.el.animate(
+        [{ transform: `translate3d(${Math.cos(a) * d}px,${Math.sin(a) * d}px,0) rotate(${(Math.random() * 2 - 1) * 240}deg) scale(${0.3 + Math.random()})`, opacity: 0 }],
+        { duration: 600 + Math.random() * 400, easing: 'cubic-bezier(.2,.7,.3,1)', fill: 'forwards' });
+    }
