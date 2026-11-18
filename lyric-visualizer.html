@@ -1391,3 +1391,6 @@ window.addEventListener('keydown', (e) => {
   else if (k === 'ArrowRight') { e.preventDefault(); seek(getTime() + 5); }
   else if (k === 'ArrowLeft') { e.preventDefault(); seek(getTime() - 5); }
   else if (k === '[') setOffset(state.offset - 0.05);
+  else if (k === ']') setOffset(state.offset + 0.05);
+  else if (k === '1') applyPreset('minimal');
+  else if (k === '2') applyPreset('neon');
