@@ -1338,3 +1338,6 @@ function setSensitivity(v) {
   $('#sensOut').textContent = state.sensitivity;
   storage.set('pulse.sens', state.sensitivity);
 }
+
+playBtn.addEventListener('click', togglePlay);
+fsBtn.addEventListener('click', toggleFullscreen);
