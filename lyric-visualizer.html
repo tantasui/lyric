@@ -1234,3 +1234,6 @@ function applyLyrics(text) {
 }
 
 function refreshTitles() {
+  const title = state.meta.ti || state.audioName || 'Untitled';
+  const artist = state.meta.ar || '';
+  $('#introTitle').textContent = title;
