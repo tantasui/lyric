@@ -844,3 +844,6 @@ function resize() {
 
 // Pre-rendered film grain tile
 const grainTile = document.createElement('canvas');
+grainTile.width = grainTile.height = 128;
+{
+  const nctx = grainTile.getContext('2d');
