@@ -702,3 +702,6 @@ function getDuration() {
 function play() {
   if (state.audioLoaded) {
     ensureAudioGraph();
+    actx.resume();
+    audioEl.play().catch((err) => setStatus('Playback failed: ' + err.message, 'err'));
+  } else {
