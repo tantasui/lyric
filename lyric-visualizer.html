@@ -1220,3 +1220,6 @@ function applyLyrics(text) {
   const { meta, lines } = parseLRC(text);
   if (!lines.length) { setStatus('No timed lines found — expected lines like [00:12.45] lyric text', 'err'); return false; }
   state.meta = meta;
+  state.lines = lines;
+  const first = lines.find((l) => l.words.length);
+  state.firstTextTime = first ? first.time : 0;
