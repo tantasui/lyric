@@ -1320,3 +1320,6 @@ function toggleFullscreen() {
   }
 }
 const setRangeFill = (input) => {
+  const p = ((input.value - input.min) / (input.max - input.min)) * 100;
+  input.style.setProperty('--p', p + '%');
+};
