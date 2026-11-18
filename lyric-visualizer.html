@@ -675,3 +675,6 @@ const FFT = 2048;
 const audioEl = new Audio();
 audioEl.preload = 'auto';
 let actx = null, analyser = null, sampleRate = 44100;
+const freqData = new Uint8Array(FFT / 2);
+
+function ensureAudioGraph() {
