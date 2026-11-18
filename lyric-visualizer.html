@@ -1335,3 +1335,6 @@ function setSensitivity(v) {
   state.sensitivity = clamp(+v, 1, 10);
   sensEl.value = state.sensitivity;
   setRangeFill(sensEl);
+  $('#sensOut').textContent = state.sensitivity;
+  storage.set('pulse.sens', state.sensitivity);
+}
