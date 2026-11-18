@@ -1308,3 +1308,6 @@ function refreshPlayButton() {
 }
 function refreshFsButton() {
   const on = !!(document.fullscreenElement || document.webkitFullscreenElement);
+  fsBtn.innerHTML = on ? ICONS.fsOff : ICONS.fsOn;
+  fsBtn.setAttribute('aria-label', on ? 'Exit fullscreen' : 'Fullscreen');
+}
