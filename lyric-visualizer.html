@@ -69,3 +69,6 @@ button { font: inherit; color: inherit; }
   will-change: transform;
   /* --glow (0..~1.5) is set every frame from the beat */
   text-shadow:
+    0 0 calc(var(--glow, 0) * 30px) rgba(var(--accent-rgb), calc(var(--glow, 0) * .85)),
+    0 4px 30px rgba(0, 0, 0, .65);
+}
