@@ -1178,3 +1178,6 @@ function findLineIndex(t) {
     if (L[mid].time <= t) { ans = mid; lo = mid + 1; } else hi = mid - 1;
   }
   return ans;
+}
+
+function forceLyricRebuild() { state.currentIndex = -999; }
