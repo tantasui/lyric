@@ -445,3 +445,6 @@ const fmtTime = (s) => {
 const hexToRgb = (hex) => {
   const n = parseInt(hex.slice(1), 16);
   return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+};
+function rgbToHsl(r, g, b) {
+  r /= 255; g /= 255; b /= 255;
