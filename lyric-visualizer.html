@@ -868,3 +868,6 @@ function setupBars(n) {
     const a = Math.max(1, Math.floor(f0 / hz));
     const b = Math.min(FFT / 2, Math.max(a + 1, Math.ceil(f1 / hz)));
     barBins.push([a, b]);
+  }
+  barVals = new Float32Array(n);
+  barPeaks = new Float32Array(n);
