@@ -1211,3 +1211,6 @@ function updateLyrics(t, nowMs) {
    9. LOADING LYRICS / TITLES
    ===================================================================== */
 function setStatus(msg, kind = '') {
+  const s = $('#lrcStatus');
+  s.textContent = msg;
+  s.className = 'status ' + kind;
