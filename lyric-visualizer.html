@@ -773,3 +773,6 @@ function synthSpectrum(t) {
    A (for "audio") is what every visual reads:
      A.bass / A.mid / A.high  smoothed band levels 0..1
      A.beat                   beat intensity 0..1 (jumps on a beat, decays)
+     A.isBeat                 true only on the frame a beat fires
+   ===================================================================== */
+const A = { bass: 0, mid: 0, high: 0, level: 0, beat: 0, isBeat: false, lastBeat: -1, prevKick: 0, hist: [] };
