@@ -726,3 +726,6 @@ function seek(t) {
   if (state.audioLoaded) audioEl.currentTime = t;
   else { state.demoTime = t; state.demoStartedAt = performance.now() - t * 1000; }
   forceLyricRebuild();
+}
+
+audioEl.addEventListener('ended', () => { state.playing = false; refreshPlayButton(); poke(); });
