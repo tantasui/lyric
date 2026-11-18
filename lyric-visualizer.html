@@ -1344,3 +1344,6 @@ fsBtn.addEventListener('click', toggleFullscreen);
 document.addEventListener('fullscreenchange', refreshFsButton);
 document.addEventListener('webkitfullscreenchange', refreshFsButton);
 
+let scrubbing = false;
+seekEl.addEventListener('pointerdown', () => { scrubbing = true; });
+seekEl.addEventListener('input', () => { scrubbing = true; seek((seekEl.value / 1000) * getDuration()); setRangeFill(seekEl); });
