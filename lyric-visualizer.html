@@ -557,3 +557,6 @@ const SAMPLE_LRC = `[ti:Signal in the Static]
    - optional enhanced word timing: <mm:ss.xx>word
    Returns { meta, lines: [{ time, end, text, words:[{text,start,end}] }] }
    ===================================================================== */
+function parseLRC(src) {
+  const meta = {};
+  const entries = [];
