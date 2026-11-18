@@ -1128,3 +1128,6 @@ function animateLine(line, lt, nowMs) {
 
   // --- whole-line beat reaction: punch, shake, glow, glitch ---
   if (P.glitch && A.isBeat && A.beat > 0.55) {
+    line.el.classList.add('glitch');
+    line.el.style.setProperty('--gx', ((Math.random() * 2 - 1) * 0.09).toFixed(3) + 'em');
+    line.glitchUntil = nowMs + 110;
