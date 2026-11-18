@@ -1276,3 +1276,6 @@ function applyPreset(key) {
   lineWrap.innerHTML = '';
   active = null;
   forceLyricRebuild();
+  storage.set('pulse.preset', key);
+}
+
