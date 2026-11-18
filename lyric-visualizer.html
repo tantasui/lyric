@@ -658,3 +658,6 @@ const state = {
   playing: false,
   demoTime: 0, demoStartedAt: 0,   // clock used when no audio is loaded
   offset: 0,                       // seconds; + = lyrics later
+  sensitivity: storage.get('pulse.sens', 5),
+  presetKey: storage.get('pulse.preset', 'neon'),
+  preset: null,
