@@ -1078,3 +1078,6 @@ function buildLine(entry) {
       return { el: ce, rx: (Math.random() * 2 - 1) * 1.6, ry: (Math.random() * 2 - 1) * 1.2, rr: (Math.random() * 2 - 1) * 110, lp: -1 };
     });
     el.appendChild(we);
+    return { el: we, chars, start: w.start, end: w.end, state: -1, settled: false };
+  });
+  lineWrap.appendChild(el);
