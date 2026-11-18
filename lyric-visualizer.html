@@ -1060,3 +1060,6 @@ function fitFontSize(text) {
 }
 
 function buildLine(entry) {
+  const el = document.createElement('div');
+  el.className = 'line';
+  el.setAttribute('aria-label', entry.text);
