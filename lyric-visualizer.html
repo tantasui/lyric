@@ -672,3 +672,6 @@ if (!PRESETS[state.presetKey]) state.presetKey = 'neon';
    AnalyserNode. Without audio, a demo clock + synthetic spectrum run.
    ===================================================================== */
 const FFT = 2048;
+const audioEl = new Audio();
+audioEl.preload = 'auto';
+let actx = null, analyser = null, sampleRate = 44100;
