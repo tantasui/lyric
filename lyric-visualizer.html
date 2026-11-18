@@ -1368,3 +1368,6 @@ $('#applyBtn').addEventListener('click', () => applyLyrics($('#lrcText').value))
 $('#sampleBtn').addEventListener('click', () => { $('#lrcText').value = SAMPLE_LRC; applyLyrics(SAMPLE_LRC); });
 
 // Drag & drop anywhere: audio files load as the song, .lrc/.txt as lyrics
+let dragDepth = 0;
+window.addEventListener('dragenter', (e) => { e.preventDefault(); dragDepth++; document.body.classList.add('dragging'); });
+window.addEventListener('dragleave', () => { if (--dragDepth <= 0) { dragDepth = 0; document.body.classList.remove('dragging'); } });
