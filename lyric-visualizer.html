@@ -900,3 +900,6 @@ function newParticle(anyDepth) {
   };
 }
 function drawParticles(dt, P, rgb) {
+  if (P.particleMode === 'dust') {
+    // Slow upward-drifting motes; the bass nudges their speed and brightness
+    for (const p of parts) {
