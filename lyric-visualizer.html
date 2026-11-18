@@ -1302,3 +1302,6 @@ const ICONS = {
 const playBtn = $('#playBtn'), fsBtn = $('#fsBtn'), seekEl = $('#seek');
 const offsetEl = $('#offset'), sensEl = $('#sens'), panel = $('#panel');
 
+function refreshPlayButton() {
+  playBtn.innerHTML = state.playing ? ICONS.pause : ICONS.play;
+  playBtn.setAttribute('aria-label', state.playing ? 'Pause' : 'Play');
