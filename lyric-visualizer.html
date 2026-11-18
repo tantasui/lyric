@@ -838,3 +838,6 @@ function resize() {
   W = window.innerWidth; H = window.innerHeight;
   canvas.width = Math.round(W * dpr);
   canvas.height = Math.round(H * dpr);
+  g.setTransform(dpr, 0, 0, dpr, 0, 0); // draw in CSS pixels
+  if (active) active.el.style.fontSize = fitFontSize(active.text) + 'px';
+}
