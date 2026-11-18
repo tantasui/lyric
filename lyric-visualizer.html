@@ -1329,3 +1329,6 @@ function setOffset(v) {
   offsetEl.value = state.offset;
   setRangeFill(offsetEl);
   $('#offsetOut').textContent = (state.offset > 0 ? '+' : '') + state.offset.toFixed(2) + 's';
+  forceLyricRebuild();
+}
+function setSensitivity(v) {
