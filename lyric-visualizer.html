@@ -1237,3 +1237,6 @@ function refreshTitles() {
   const title = state.meta.ti || state.audioName || 'Untitled';
   const artist = state.meta.ar || '';
   $('#introTitle').textContent = title;
+  $('#introArtist').textContent = artist + (state.meta.al ? (artist ? ' — ' : '') + state.meta.al : '');
+  $('#npTitle').textContent = artist ? `${title} · ${artist}` : title;
+  document.title = `${title} — Pulse`;
