@@ -1166,3 +1166,6 @@ function retire(line) {
     el.animate(frames, { duration: kind === 'blur' ? 650 : 520, easing: 'cubic-bezier(.4,0,.2,1)', fill: 'forwards' })
       .finished.then(() => el.remove(), () => el.remove());
   }
+  // Safety: never let more than a few ghosts pile up (e.g. while scrubbing)
+  while (lineWrap.children.length > 4) lineWrap.firstElementChild.remove();
+}
