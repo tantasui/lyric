@@ -613,3 +613,6 @@ function parseLRC(src) {
   });
   entries.sort((a, b) => a.time - b.time);
 
+  // Each line ends when the next one starts
+  entries.forEach((e, i) => {
+    e.end = i < entries.length - 1 ? entries[i + 1].time : e.time + Math.max(4, e.words.length * 0.6);
