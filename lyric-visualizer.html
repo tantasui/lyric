@@ -1267,3 +1267,6 @@ function applyPreset(key) {
   document.body.dataset.preset = key;
   const rgb = hexToRgb(state.preset.accent);
   state.accentHsl = rgbToHsl(...rgb);
+  setAccent(rgb);
+  lastHueShift = 999;
+  setupBars(state.preset.barCount);
