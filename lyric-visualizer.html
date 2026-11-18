@@ -1001,3 +1001,6 @@ function drawScene(dt, t) {
   glow.addColorStop(1, 'rgba(0,0,0,0)');
   g.fillStyle = glow;
   g.fillRect(0, 0, W, H);
+
+  // 3) Two slow orbiting soft shapes (mids / highs)
+  for (let i = 0; i < 2; i++) {
