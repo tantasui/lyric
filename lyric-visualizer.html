@@ -81,3 +81,6 @@ button { font: inherit; color: inherit; }
 .line.glitch .word.current::before, .line.glitch .word.current::after,
 .line.glitch .word.sung::before,    .line.glitch .word.sung::after {
   content: attr(data-w);
+  position: absolute; left: 0; top: 0; width: 100%;
+  pointer-events: none;
+}
