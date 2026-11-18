@@ -927,3 +927,6 @@ function drawParticles(dt, P, rgb) {
     const x0 = cx + (p.x / tail) * k, y0 = cy + (p.y / tail) * k;
     const depth = 1 - p.z;
     g.strokeStyle = p.s < 0.22 ? `rgba(${rgb},${depth * 0.9})` : `rgba(255,255,255,${depth * 0.55})`;
+    g.lineWidth = 0.4 + depth * 2.2;
+    g.beginPath(); g.moveTo(x0, y0); g.lineTo(x, y); g.stroke();
+  }
