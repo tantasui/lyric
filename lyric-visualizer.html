@@ -1442,3 +1442,5 @@ function updateUI(t) {
    ===================================================================== */
 let lastFrame = performance.now();
 function frame(now) {
+  const dt = Math.min(0.05, (now - lastFrame) / 1000); // clamp after tab switches
+  lastFrame = now;
