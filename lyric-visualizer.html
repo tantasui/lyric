@@ -1311,3 +1311,6 @@ function refreshFsButton() {
   fsBtn.innerHTML = on ? ICONS.fsOff : ICONS.fsOn;
   fsBtn.setAttribute('aria-label', on ? 'Exit fullscreen' : 'Fullscreen');
 }
+function toggleFullscreen() {
+  const el = document.documentElement;
+  if (document.fullscreenElement || document.webkitFullscreenElement) {
