@@ -859,3 +859,6 @@ const grainPattern = g.createPattern(grainTile, 'repeat');
 
 /* --- Spectrum bars: log-spaced frequency buckets, smoothed with fast attack / slow release --- */
 let barBins = [], barVals = new Float32Array(0), barPeaks = new Float32Array(0);
+function setupBars(n) {
+  const hz = sampleRate / FFT, fMin = 32, fMax = 15000;
+  barBins = [];
