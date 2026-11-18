@@ -258,3 +258,6 @@ kbd {
 /* ---------- Load panel (right drawer) ---------- */
 #panel {
   position: fixed; top: 0; right: 0; bottom: 0; width: min(440px, 100%);
+  background: var(--glass); backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px);
+  border-left: 1px solid var(--faint);
+  transform: translateX(105%); transition: transform .45s cubic-bezier(.2,.8,.2,1);
