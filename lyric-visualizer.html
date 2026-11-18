@@ -992,3 +992,6 @@ function drawScene(dt, t) {
   // 1) Base
   g.fillStyle = '#050507';
   g.fillRect(0, 0, W, H);
+
+  // 2) Breathing accent glow (bass drives size + brightness)
+  const R = Math.max(W, H) * (0.5 + A.bass * 0.3 * P.bg);
