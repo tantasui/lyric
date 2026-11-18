@@ -1057,3 +1057,6 @@ function fitFontSize(text) {
   // Aim for ≤ ~2.2 rows, and never let the longest word overflow
   const byWidth = width / (P.charW * Math.max(longest, text.length / 2.2));
   return Math.round(clamp(Math.min(byWidth, H * 0.16), 24, 170));
+}
+
+function buildLine(entry) {
