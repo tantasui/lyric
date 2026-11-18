@@ -575,3 +575,6 @@ function parseLRC(src) {
     // Collect all leading timestamps: [00:20.00][00:36.00]Chorus line
     const times = [];
     let m;
+    while ((m = line.match(LEAD))) {
+      times.push(toSec(m[1], m[2], m[3]));
+      line = line.slice(m[0].length).trim();
