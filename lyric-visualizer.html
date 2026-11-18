@@ -1450,3 +1450,6 @@ function frame(now) {
   const t = getTime();
 
   analyse(t, dt, now / 1000);
+  updateBars(dt);
+  updateColourShift();
+  drawScene(dt, now / 1000);
