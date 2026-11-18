@@ -1116,3 +1116,6 @@ function animateLine(line, lt, nowMs) {
       if (p === c.lp) return; // nothing changed → skip DOM write
       c.lp = p;
       const e = P.reveal === 'chaos' ? easeOutBack(p) : easeOutCubic(p);
+      const [tf, op] = charStyle(c, e, P.reveal);
+      c.el.style.transform = tf;
+      c.el.style.opacity = op;
