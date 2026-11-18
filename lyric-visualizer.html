@@ -1172,3 +1172,6 @@ function retire(line) {
 
 function findLineIndex(t) {
   const L = state.lines;
+  let lo = 0, hi = L.length - 1, ans = -1;
+  while (lo <= hi) {
+    const mid = (lo + hi) >> 1;
