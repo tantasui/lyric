@@ -1010,3 +1010,6 @@ function drawScene(dt, t) {
     const og = g.createRadialGradient(ox, oy, 0, ox, oy, or);
     og.addColorStop(0, i ? `rgba(255,255,255,${0.025 + A.high * 0.05})` : `rgba(${rgb},${0.04 + A.mid * 0.08 * P.bg})`);
     og.addColorStop(1, 'rgba(0,0,0,0)');
+    g.fillStyle = og;
+    g.fillRect(0, 0, W, H);
+  }
