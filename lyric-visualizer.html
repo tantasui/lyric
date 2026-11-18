@@ -1412,3 +1412,6 @@ function poke() {
 ['mousemove', 'mousedown', 'touchstart', 'wheel'].forEach((ev) => window.addEventListener(ev, poke, { passive: true }));
 document.querySelectorAll('#controls, #topbar').forEach((el) => {
   el.addEventListener('mouseenter', () => { overChrome = true; });
+  el.addEventListener('mouseleave', () => { overChrome = false; poke(); });
+});
+
