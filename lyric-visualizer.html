@@ -909,3 +909,6 @@ function drawParticles(dt, P, rgb) {
       const x = (p.x * 0.5 + 0.5) * W, y = (p.y * 0.5 + 0.5) * H;
       const r = 0.6 + p.s * 1.6 + A.bass * 1.2;
       g.fillStyle = p.s < 0.2 ? `rgba(${rgb},${0.25 + A.bass * 0.4})` : `rgba(255,255,255,${0.08 + p.s * 0.12 + A.beat * 0.15})`;
+      g.beginPath(); g.arc(x, y, r, 0, Math.PI * 2); g.fill();
+    }
+    return;
