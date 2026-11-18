@@ -1081,3 +1081,6 @@ function buildLine(entry) {
     return { el: we, chars, start: w.start, end: w.end, state: -1, settled: false };
   });
   lineWrap.appendChild(el);
+  return { el, words, text: entry.text, glitchUntil: 0 };
+}
+
