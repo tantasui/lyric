@@ -601,3 +601,6 @@ function parseLRC(src) {
         time: t,
         words: words.map((w) => ({ text: w.text, t: w.t == null ? null : w.t + (t - times[0]) })),
       });
+    }
+  }
+
