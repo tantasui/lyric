@@ -1024,3 +1024,6 @@ function drawScene(dt, t) {
   if (P.bars === 'row' || P.bars === 'both') drawRow(P, rgb);
   g.restore();
 
+  // 6) Beat flash
+  if (P.flash && A.beat > 0.05) {
+    g.fillStyle = `rgba(${rgb},${(A.beat * P.flash).toFixed(3)})`;
