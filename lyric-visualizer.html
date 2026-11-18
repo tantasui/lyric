@@ -1072,3 +1072,6 @@ function buildLine(entry) {
     const chars = [...w.text].map((c) => {
       const ce = document.createElement('span');
       ce.className = 'ch';
+      ce.textContent = c;
+      we.appendChild(ce);
+      // random fly-in vector for the Chaos reveal
