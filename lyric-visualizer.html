@@ -903,3 +903,6 @@ function drawParticles(dt, P, rgb) {
   if (P.particleMode === 'dust') {
     // Slow upward-drifting motes; the bass nudges their speed and brightness
     for (const p of parts) {
+      p.y -= dt * (0.015 + 0.03 * p.s + A.bass * 0.08);
+      p.x += dt * 0.01 * Math.sin(p.y * 6 + p.s * 10);
+      if (p.y < -1.05) { p.y = 1.05; p.x = Math.random() * 2 - 1; }
