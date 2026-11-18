@@ -1152,3 +1152,6 @@ function retire(line) {
   const kind = state.preset.exit;
   if (kind === 'scatter') {
     // Every letter flies off in its own direction
+    for (const w of line.words) for (const c of w.chars) {
+      const a = Math.random() * Math.PI * 2, d = 160 + Math.random() * 380;
+      c.el.animate(
