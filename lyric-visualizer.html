@@ -862,3 +862,6 @@ let barBins = [], barVals = new Float32Array(0), barPeaks = new Float32Array(0);
 function setupBars(n) {
   const hz = sampleRate / FFT, fMin = 32, fMax = 15000;
   barBins = [];
+  for (let i = 0; i < n; i++) {
+    const f0 = fMin * Math.pow(fMax / fMin, i / n);
+    const f1 = fMin * Math.pow(fMax / fMin, (i + 1) / n);
