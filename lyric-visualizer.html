@@ -1113,3 +1113,6 @@ function animateLine(line, lt, nowMs) {
     w.chars.forEach((c, ci) => {
       const p = clamp((lt - w.start - ci * stagger) / P.enter, 0, 1);
       if (p < 1) done = false;
+      if (p === c.lp) return; // nothing changed → skip DOM write
+      c.lp = p;
+      const e = P.reveal === 'chaos' ? easeOutBack(p) : easeOutCubic(p);
