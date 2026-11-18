@@ -1246,3 +1246,6 @@ function readTextFile(file) {
   const r = new FileReader();
   r.onload = () => { $('#lrcText').value = r.result; applyLyrics(r.result); };
   r.readAsText(file);
+}
+
+/* =====================================================================
