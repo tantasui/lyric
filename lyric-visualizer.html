@@ -1285,3 +1285,6 @@ function updateColourShift() {
   if (!P.colorShift) return;
   const shift = A.beat * P.colorShift * 70;
   if (Math.abs(shift - lastHueShift) < 0.8) return;
+  lastHueShift = shift;
+  const [h, s, l] = state.accentHsl;
+  setAccent(hslToRgb((h + shift + 360) % 360, s, l));
