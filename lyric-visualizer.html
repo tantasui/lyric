@@ -1143,3 +1143,6 @@ function animateLine(line, lt, nowMs) {
   line.el.style.transform = `translate3d(${x.toFixed(2)}px,${y.toFixed(2)}px,0) rotate(${rot.toFixed(2)}deg) skewX(${skew.toFixed(1)}deg) scale(${s.toFixed(4)})`;
   line.el.style.setProperty('--glow', (P.glow * (0.2 + A.beat * 0.85 + A.bass * 0.3)).toFixed(3));
 }
+
+/* Stylish exits, using the Web Animations API (runs off our rAF loop) */
+function retire(line) {
