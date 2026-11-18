@@ -1347,3 +1347,6 @@ document.addEventListener('webkitfullscreenchange', refreshFsButton);
 let scrubbing = false;
 seekEl.addEventListener('pointerdown', () => { scrubbing = true; });
 seekEl.addEventListener('input', () => { scrubbing = true; seek((seekEl.value / 1000) * getDuration()); setRangeFill(seekEl); });
+seekEl.addEventListener('change', () => { scrubbing = false; });
+window.addEventListener('pointerup', () => { scrubbing = false; });
+
