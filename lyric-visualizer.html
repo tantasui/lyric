@@ -968,3 +968,6 @@ function drawRing(P, rgb, t) {
 function drawRow(P, rgb) {
   const n = barVals.length, total = n * 2;
   const margin = W * 0.03, bw = (W - margin * 2) / total, gap = Math.max(1, bw * 0.3);
+  const maxH = H * P.rowHeight * (1 + A.beat * 0.35);
+  const grad = g.createLinearGradient(0, H, 0, H - maxH);
+  grad.addColorStop(0, `rgba(${rgb},${P.barAlpha})`);
