@@ -1406,3 +1406,6 @@ function poke() {
   document.body.classList.remove('idle');
   clearTimeout(idleTimer);
   idleTimer = setTimeout(() => {
+    if (state.playing && !panel.classList.contains('open') && !overChrome) document.body.classList.add('idle');
+  }, 2500);
+}
