@@ -562,6 +562,72 @@ const SAMPLE_LRC = `[ti:Signal in the Static]
 [00:56.00]`;
 
 /* =====================================================================
+   2b. DEFAULT SONG
+   Loaded automatically on page open so visitors can hit play straight
+   away. The audio path is relative to this HTML file, so it works when the
+   page is served (GitHub Pages, `python3 -m http.server`, …). If the file
+   can't load, the page falls back to the silent built-in sample.
+   ===================================================================== */
+const DEFAULT_SONG = {
+  audio: 'audio/shottas.mp3',
+  name: "Shotta's",
+  lrc: `[ti:Shotta's]
+[ar:Season 25]
+[al:Shotta's - Single]
+[00:02.86] Tobi, what the f
+[00:05.48]
+[00:09.95] Tobi what the f
+[00:12.59]
+[00:15.23] I'm in need of one thing and it's running through my brain
+[00:18.84] Let that bitch go 'cause she breaking windows
+[00:22.10] I'm saying to Joeldo, do these niggas not have shame?"
+[00:25.98] Your girl, she a hoe, but you show her like she gold
+[00:29.44] Look at how she treating son
+[00:31.39] I know you's a tender man
+[00:33.13] When you call, she do not come
+[00:34.79] That is not your hoe
+[00:36.71] I don't think he knows, what a shame
+[00:38.96] He's a hoe
+[00:40.25] Acting like she likes him for that money
+[00:42.46] He's a fool
+[00:43.12] Flocka, Flocka
+[00:43.75] All my guys are arrive cause they all shotta, shotta's
+[00:46.43] If I wanna pop this bottle
+[00:48.42] Then I'ma pop that bottle
+[00:50.14] I am with a fine-ass model
+[00:52.00] She wanna ride this saddle
+[00:53.60] I can see you don't want battle
+[00:55.51] Your voice, it shakes and rattles
+[00:58.12] I'm in need of one thing and it's running through my brain
+[01:01.53] Let that bitch go 'cause she breaking windows
+[01:04.99] I'm saying to Joeldo, do these niggas not have shame?"
+[01:08.78] Your girl, she a hoe, but you show her like she gold
+[01:12.28] Why do all these bitches keep on stressing out my head?
+[01:15.86] She can see I'm working for that motherfucking bread
+[01:19.41] Throwing all this shit around, I can see you mad
+[01:22.93] Tired of your dumb shit, bitch, you better leave
+[01:26.64] All these niggas pussy, they don't get it, they don't want it
+[01:30.26] I been getting check, checks, I been getting money
+[01:33.79] I been pushing fast in this whip with hydraulics
+[01:37.28] This bitch, she don't know it
+[01:38.70] And this bitch, she just smoking
+[01:40.49] I been flowing, I been flowing
+[01:42.66] I'm up in this club and we drinking 'til the morning
+[01:45.94] These bottle girls deceiving
+[01:47.69] She's fine and she's appealing
+[01:49.49] Dim lights and we dancing
+[01:51.23] We dance 'til the night ends
+[01:53.00] So play the song
+[01:55.16] I'm in need of one thing and it's running through my brain
+[01:58.69] Let that bitch go 'cause she breaking windows
+[02:01.97] I'm saying to Joeldo, do these niggas not have shame?"
+[02:05.79] Your girl, she a hoe, but you show her like she gold
+[02:10.79]
+[02:12.84] Let that bitch go 'cause she breaking windows
+[02:22.10]`,
+};
+
+/* =====================================================================
    3. LRC PARSER
    - [mm:ss.xx] / [mm:ss:xx] / [mm:ss] timestamps, several per line
    - metadata tags: [ti:] [ar:] [al:] [by:] [offset:] …
@@ -757,6 +823,36 @@ function loadAudioFile(file) {
   $('#hint').classList.add('gone');
   refreshTitles();
   forceLyricRebuild();
+}
+
+/* Load the default song by URL. On failure (file missing, opened via
+   file:// in some browsers, …) fall back to the silent demo sample. */
+function loadDefaultSong() {
+  audioEl.src = DEFAULT_SONG.audio;
+  state.audioLoaded = true;
+  state.audioName = DEFAULT_SONG.name;
+  $('#modeChip').hidden = true;
+  $('#hintWhat').textContent = 'Play ' + DEFAULT_SONG.name;
+  $('#hintSub').textContent = 'Turn your sound on';
+  $('#audioName').textContent = DEFAULT_SONG.name + ' (default) — or drop your own';
+  $('#lrcText').value = DEFAULT_SONG.lrc;
+  applyLyrics(DEFAULT_SONG.lrc);
+  audioEl.addEventListener('error', function onErr() {
+    audioEl.removeEventListener('error', onErr);
+    if (!audioEl.src.endsWith(DEFAULT_SONG.audio)) return; // a user file failed, not the default
+    state.audioLoaded = false;
+    state.playing = false;
+    state.audioName = '';
+    audioEl.removeAttribute('src');
+    $('#modeChip').hidden = false;
+    $('#hintWhat').textContent = 'Play demo';
+    $('#hintSub').textContent = 'Silent demo with a simulated beat';
+    $('#audioName').textContent = '…or drop it anywhere on the page';
+    $('#lrcText').value = SAMPLE_LRC;
+    applyLyrics(SAMPLE_LRC);
+    refreshPlayButton();
+    setStatus("Couldn't load the default song, so the silent sample is loaded instead.", 'err');
+  });
 }
 
 /* Synthetic spectrum for demo mode: a 120 BPM kick, off-beat hats and a
@@ -1483,9 +1579,8 @@ setOffset(0);
 setSensitivity(state.sensitivity);
 refreshPlayButton();
 refreshFsButton();
-$('#lrcText').value = SAMPLE_LRC;
-applyLyrics(SAMPLE_LRC);
-setStatus('Sample loaded. Paste your own LRC above, or open a .lrc file.');
+loadDefaultSong();
+setStatus(`"${DEFAULT_SONG.name}" loaded. Paste your own LRC above, open a .lrc file, or press Sample for the silent demo.`);
 poke();
 requestAnimationFrame(frame);
 </script>
