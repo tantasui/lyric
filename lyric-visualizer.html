@@ -738,3 +738,5 @@ function loadAudioFile(file) {
   pause();
   if (audioEl.src) URL.revokeObjectURL(audioEl.src);
   audioEl.src = URL.createObjectURL(file);
+  state.audioLoaded = true;
+  state.audioName = file.name.replace(/\.[^.]+$/, '');
