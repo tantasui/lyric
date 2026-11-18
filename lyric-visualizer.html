@@ -637,3 +637,6 @@ function timeWords(e) {
   e.words.forEach((w, i) => {
     if (!known.length) { w.start = auto[i]; return; }
     if (w.t != null) { w.start = w.t; return; }
+    // Interpolate between neighbouring known word times
+    const prev = known.filter((k) => k < i).pop();
+    const next = known.find((k) => k > i);
