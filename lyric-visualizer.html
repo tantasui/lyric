@@ -669,3 +669,6 @@ if (!PRESETS[state.presetKey]) state.presetKey = 'neon';
 /* =====================================================================
    5. AUDIO + CLOCK
    An <audio> element plays the file; a MediaElementSource feeds an
+   AnalyserNode. Without audio, a demo clock + synthetic spectrum run.
+   ===================================================================== */
+const FFT = 2048;
