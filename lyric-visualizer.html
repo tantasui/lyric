@@ -1119,3 +1119,6 @@ function animateLine(line, lt, nowMs) {
       const [tf, op] = charStyle(c, e, P.reveal);
       c.el.style.transform = tf;
       c.el.style.opacity = op;
+    });
+    if (done) {
+      w.settled = true;
