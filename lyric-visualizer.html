@@ -874,3 +874,6 @@ function setupBars(n) {
 }
 function updateBars(dt) {
   const n = barBins.length;
+  for (let i = 0; i < n; i++) {
+    const [a, b] = barBins[i];
+    let m = 0;
