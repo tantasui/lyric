@@ -850,3 +850,6 @@ grainTile.width = grainTile.height = 128;
   const img = nctx.createImageData(128, 128);
   for (let i = 0; i < img.data.length; i += 4) {
     const v = (Math.random() * 255) | 0;
+    img.data[i] = img.data[i + 1] = img.data[i + 2] = v;
+    img.data[i + 3] = 255;
+  }
