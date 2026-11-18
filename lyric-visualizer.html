@@ -1101,3 +1101,6 @@ function animateLine(line, lt, nowMs) {
     if (st !== w.state) {
       w.el.classList.toggle('current', st === 1);
       w.el.classList.toggle('sung', st === 2);
+      if (st !== 1) w.el.style.transform = '';
+      w.state = st;
+    }
