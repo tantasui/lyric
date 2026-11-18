@@ -705,3 +705,6 @@ function play() {
     actx.resume();
     audioEl.play().catch((err) => setStatus('Playback failed: ' + err.message, 'err'));
   } else {
+    state.demoStartedAt = performance.now() - state.demoTime * 1000;
+  }
+  state.playing = true;
