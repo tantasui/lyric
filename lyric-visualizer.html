@@ -980,3 +980,6 @@ function drawRow(P, rgb) {
   }
   g.fillStyle = 'rgba(255,255,255,.55)'; // peak caps
   for (let k = 0; k < total; k++) {
+    const i = k < n ? n - 1 - k : k - n;
+    g.fillRect(margin + k * bw, H - 4 - barPeaks[i] * maxH, bw - gap, 1.5);
+  }
