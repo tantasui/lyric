@@ -1007,3 +1007,6 @@ function drawScene(dt, t) {
     const ox = cx + Math.cos(t * 0.11 + i * 3.1) * W * 0.32;
     const oy = cy + Math.sin(t * 0.08 + i * 2.2) * H * 0.28;
     const or = Math.min(W, H) * (0.35 + (i ? A.high : A.mid) * 0.3);
+    const og = g.createRadialGradient(ox, oy, 0, ox, oy, or);
+    og.addColorStop(0, i ? `rgba(255,255,255,${0.025 + A.high * 0.05})` : `rgba(${rgb},${0.04 + A.mid * 0.08 * P.bg})`);
+    og.addColorStop(1, 'rgba(0,0,0,0)');
