@@ -587,3 +587,6 @@ function parseLRC(src) {
     const pushText = (txt, t) => {
       txt.split(/\s+/).filter(Boolean).forEach((w, i) => words.push({ text: w, t: i === 0 ? t : null }));
     };
+    WORD_TAG.lastIndex = 0;
+    while ((m = WORD_TAG.exec(line))) {
+      pushText(line.slice(lastIdx, m.index), pendingT);
