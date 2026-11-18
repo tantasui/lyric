@@ -879,3 +879,6 @@ function updateBars(dt) {
     let m = 0;
     for (let j = a; j < b; j++) if (freqData[j] > m) m = freqData[j];
     // Contrast curve + gentle tilt so highs aren't dwarfed by bass
+    const v = clamp(Math.pow(m / 255, 1.7) * (1 + (i / n) * 0.6), 0, 1);
+    const rate = v > barVals[i] ? 28 : 7; // fast up, slow down = no jitter
+    barVals[i] += (v - barVals[i]) * damp(rate, dt);
