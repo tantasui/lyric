@@ -693,3 +693,6 @@ function ensureAudioGraph() {
 const demoDuration = () => (state.lines.length ? state.lines[state.lines.length - 1].end + 2 : 30);
 function getTime() {
   if (state.audioLoaded) return audioEl.currentTime;
+  return state.playing ? (performance.now() - state.demoStartedAt) / 1000 : state.demoTime;
+}
+function getDuration() {
