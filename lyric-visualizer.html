@@ -758,3 +758,6 @@ function synthSpectrum(t) {
   const hat = Math.exp(-(((t + beatLen / 2) % beatLen) / beatLen) * 14) * 0.7;
   const swell = 0.5 + 0.5 * Math.sin(t * 0.4);
   for (let i = 0; i < freqData.length; i++) {
+    const f = i * hz;
+    let v = 0;
+    if (f < 220) v += 235 * kick * (1 - f / 300);
