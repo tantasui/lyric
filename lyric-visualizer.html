@@ -1169,3 +1169,6 @@ function retire(line) {
   // Safety: never let more than a few ghosts pile up (e.g. while scrubbing)
   while (lineWrap.children.length > 4) lineWrap.firstElementChild.remove();
 }
+
+function findLineIndex(t) {
+  const L = state.lines;
