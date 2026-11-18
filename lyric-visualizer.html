@@ -1326,3 +1326,6 @@ const setRangeFill = (input) => {
 
 function setOffset(v) {
   state.offset = clamp(Math.round(v * 100) / 100, -2, 2);
+  offsetEl.value = state.offset;
+  setRangeFill(offsetEl);
+  $('#offsetOut').textContent = (state.offset > 0 ? '+' : '') + state.offset.toFixed(2) + 's';
